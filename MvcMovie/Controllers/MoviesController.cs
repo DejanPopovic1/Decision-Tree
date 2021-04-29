@@ -12,6 +12,7 @@ namespace MvcMovie.Controllers
 {
     public class MoviesController : Controller
     {
+        //These are all action methods
         private MovieDBContext db = new MovieDBContext();
 
         // GET: Movies
@@ -33,6 +34,7 @@ namespace MvcMovie.Controllers
                 return HttpNotFound();
             }
             return View(movie);
+            //The argument movie is passed to the view Details. The top line of that document has the argument passed in 
         }
 
         // GET: Movies/Create
