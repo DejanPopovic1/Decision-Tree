@@ -26,7 +26,7 @@ namespace MvcMovie.Controllers
 
 
             GenreLst.AddRange(GenreQry.Distinct());
-            ViewBag.movieGenre = new SelectList(GenreLst);
+            ViewBag.movieGenre = new SelectList(GenreLst); //We can add in "Comedy as a second parameter if we want it as a default when going to the view template"
 
 
 

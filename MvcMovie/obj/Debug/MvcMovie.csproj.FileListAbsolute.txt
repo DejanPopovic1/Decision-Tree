@@ -81,3 +81,5 @@ C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\EntityFramework.dll
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\EntityFramework.SqlServer.dll
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\EntityFramework.xml
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\EntityFramework.SqlServer.xml
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.Initial.resources
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csproj.GenerateResource.cache
