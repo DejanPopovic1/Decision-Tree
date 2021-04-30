@@ -16,10 +16,46 @@ namespace MvcMovie.Controllers
         private MovieDBContext db = new MovieDBContext();
 
         // GET: Movies
-        public ActionResult Index()
+        public ActionResult Index(string movieGenre, string searchString)
         {
-            return View(db.Movies.ToList());
+            var GenreLst = new List<string>();
+
+            var GenreQry = from d in db.Movies
+                           orderby d.Genre
+                           select d.Genre;
+
+
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreLst);
+
+
+
+            var movies = from m in db.Movies
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString)) { 
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
+
+
+            //WeakReference are returng the shortlisted list
+            return View(movies);//We are passing the list as an argument to the view template
+
+            //But if we wanted to return the whole list, we would do:
+            //return View(db.Movies.ToList());//We are passing the list as an argument to the view template
         }
+
+        // GET: Movies/Details/5
+        public string Testing(int? id)
+        {
+            return "<h1>Hello World!</h1>";
+        }
+
 
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
