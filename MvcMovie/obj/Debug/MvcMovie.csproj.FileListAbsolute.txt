@@ -84,3 +84,4 @@ C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\EntityFramework.SqlServer.x
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.Initial.resources
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csproj.GenerateResource.cache
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.Rating.resources
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.DataAnnotations.resources

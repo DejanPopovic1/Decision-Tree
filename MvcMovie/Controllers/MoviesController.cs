@@ -10,6 +10,7 @@ using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
+    //HTTP GET is default
     public class MoviesController : Controller
     {
         //These are all action methods
@@ -65,6 +66,8 @@ namespace MvcMovie.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Movie movie = db.Movies.Find(id);
+
+            //Good security feature
             if (movie == null)
             {
                 return HttpNotFound();
