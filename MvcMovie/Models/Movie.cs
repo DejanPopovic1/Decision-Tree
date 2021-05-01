@@ -9,7 +9,14 @@ namespace MvcMovie.Models
         public int ID { get; set; }
 
         [StringLength(60, MinimumLength = 3)]
-        public string Title { get; set; }
+        public string Title { get; set; }//Automatic property//We can also open get and set with { } and define a few steps. The statement is equivalent to get{return _name} set {_name = value};
+                                         //Could also do:
+        //public string Name
+        //{
+        //    get { return _name; }
+        //    set { _name = value; }
+        //}
+
 
         [Display(Name = "Release Date"), DataType(DataType.Date)]
 
