@@ -40,7 +40,6 @@ namespace MvcMovie.Models
 
         private Dictionary<string, int> countColumnOccurances(int columnIndex)
         {
-
             string indexName = dt.Columns[columnIndex].ColumnName;
             DataView view = new DataView(dt);
             DataTable distinctColumnDT = view.ToTable(true, dt.Columns[columnIndex].ColumnName);
@@ -103,32 +102,20 @@ namespace MvcMovie.Models
         //    }
         //    return decisionsAndTheirCount;
         //}
-
-        public void calcEntropy()
+        
+        private void calcEntropy()
         {
             int entryCount = dt.Rows.Count;
-
-
-
-
-
-
-
-
-            var i = 0;
-            foreach(DataRow r in dt.Rows)
+            Dictionary<string, int> decisionCounts = countColumnOccurances(dt.Columns.Count - 1);
+            double sum = 0;
+            foreach (KeyValuePair<String, int> entry in decisionCounts) 
             {
-                listOfDecisions[i] = (string)r[decisionIndex];
-                i++;
+                int v = entry.Value;
+                sum += calcEntropyTerm(entryCount, v);
             }
-            foreach (var l in listOfDecisions)
-            {
-
-            }
-
         }
 
-        public double calcEntropyTerm(int totalEntryCount, int specificDecisionCount) 
+        private double calcEntropyTerm(int totalEntryCount, int specificDecisionCount) 
         {
             double r = (double)specificDecisionCount / totalEntryCount;
             return -r * Math.Log(r, (double)2);
