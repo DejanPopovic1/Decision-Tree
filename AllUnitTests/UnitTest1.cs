@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using MvcMovie.Models;
 using System;
+using System.Reflection;
 
 namespace AllUnitTests
 {
@@ -16,8 +17,20 @@ namespace AllUnitTests
             ds.addAttribute("Collateral");
             ds.addAttribute("Income");
             ds.addAttribute("Risk");
-            ds.CreateDataRow("BAD", "HIGH", "NO", "< R15K", "HIGH");
-
+            ds.CreateDataRow("BAD",     "HIGH", "NO",   "< R15K",       "HIGH");
+            ds.CreateDataRow("UNKNOWN", "HIGH", "NO",   "R15k - R35k",  "HIGH");
+            ds.CreateDataRow("UNKNOWN", "LOW",  "NO",   "R15k - R35k",  "MEDIUM");
+            ds.CreateDataRow("UNKNOWN", "LOW",  "NO",   "< R15K",       "HIGH");
+            ds.CreateDataRow("UNKNOWN", "LOW",  "NO",   "> R35k",       "LOW");
+            ds.CreateDataRow("UNKNOWN", "LOW",  "YES",  "> R35k",       "LOW");
+            ds.CreateDataRow("BAD",     "LOW",  "NO",   "< R15K",       "HIGH");
+            ds.CreateDataRow("BAD",     "LOW",  "YES",  "> R35k",       "MEDIUM");
+            ds.CreateDataRow("GOOD",    "LOW",  "NO",   "> R35k",       "LOW");
+            ds.CreateDataRow("GOOD",    "HIGH", "YES",  "> R35k",       "LOW");
+            ds.CreateDataRow("GOOD",    "HIGH", "NO",   "< R15K",       "HIGH");
+            ds.CreateDataRow("GOOD",    "HIGH", "NO",   "R15k - R35k",  "MEDIUM");
+            ds.CreateDataRow("GOOD",    "HIGH", "NO",   "> R35k",       "LOW");
+            ds.CreateDataRow("BAD",     "HIGH", "NO",   "R15k - R35k",  "HIGH");
         }
 
         [TearDown]
@@ -26,9 +39,12 @@ namespace AllUnitTests
             ds = new DataSet();
         }
 
-            [Test]
-        public void Test1()
+        [Test]
+        public void isEntropyCalculatedCorrectly()
         {
+            MethodInfo methodInfo = typeof(DataSet).GetMethod("calcEntropy", BindingFlags.NonPublic | BindingFlags.Instance);
+            object[] parameters = { };
+            methodInfo.Invoke(ds, parameters);
             //String[] ent1 = { "a", "a", "a", "a", "a" };
 
             //ds.CreateDataRow(ent1);

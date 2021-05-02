@@ -107,7 +107,7 @@ namespace MvcMovie.Models
         //    return decisionsAndTheirCount;
         //}
         
-        private void calcEntropy()
+        private double calcEntropy()
         {
             int entryCount = dt.Rows.Count;
             Dictionary<string, int> decisionCounts = countColumnOccurances(dt.Columns.Count - 1);
@@ -117,6 +117,7 @@ namespace MvcMovie.Models
                 int v = entry.Value;
                 sum += calcEntropyTerm(entryCount, v);
             }
+            return sum;
         }
 
         private double calcEntropyTerm(int totalEntryCount, int specificDecisionCount) 

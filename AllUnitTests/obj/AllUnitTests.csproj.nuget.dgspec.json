@@ -55,6 +55,10 @@
             "NUnit3TestAdapter": {
               "target": "Package",
               "version": "[3.17.0, )"
+            },
+            "TestToolsToXunitProxy": {
+              "target": "Package",
+              "version": "[0.0.4, )"
             }
           },
           "imports": [
