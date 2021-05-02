@@ -8,7 +8,7 @@ namespace MvcMovie.Models
 {
     public class DataSet
     {
-        DataTable dt = new DataTable();
+        public DataTable dt = new DataTable();
 
         //By convention, the last column in the table is the decision
         public void addAttribute(String attribute) {
@@ -19,12 +19,12 @@ namespace MvcMovie.Models
             dt.Rows.Add(dr);
         }
 
-        public DataRow CreateDataRow(params string[] arr)
+        public void CreateDataRow(params string[] arr)
         {
-            Console.WriteLine("String size is: ");
-            Console.WriteLine(arr.Length);
-            Console.WriteLine("Number of columns are: ");
-            Console.WriteLine(dt.Columns.Count);
+            //Console.WriteLine("String size is: ");
+            //Console.WriteLine(arr.Length);
+            //Console.WriteLine("Number of columns are: ");
+            //Console.WriteLine(dt.Columns.Count);
             if (arr.Length != dt.Columns.Count) {
                 throw new Exception("Size mismatch between new row arguments and number of actual table arguments");
             }
@@ -32,7 +32,9 @@ namespace MvcMovie.Models
             for (int i = 0; i < dt.Columns.Count; ++i) {
                 dr[i] = arr[i];
             }
-            return dr;
+            addEntry(dr);
+
+            //return dr;
         }
 
         public void generateDecisionTree()
@@ -52,9 +54,9 @@ namespace MvcMovie.Models
             {
                 listOfDistinctItems.Add(r[indexName].ToString());
             }
-
             var itemsAndTheirCount = new Dictionary<String, int>();
             int count = 0;
+            
             foreach (var l in listOfDistinctItems)
             {
                 foreach (DataRow r in dt.Rows)
@@ -107,9 +109,10 @@ namespace MvcMovie.Models
         //    return decisionsAndTheirCount;
         //}
         
-        private double calcEntropy()
+        public double calcEntropy()
         {
             int entryCount = dt.Rows.Count;
+
             Dictionary<string, int> decisionCounts = countColumnOccurances(dt.Columns.Count - 1);
             double sum = 0;
             foreach (KeyValuePair<String, int> entry in decisionCounts) 

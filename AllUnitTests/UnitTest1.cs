@@ -2,13 +2,14 @@ using NUnit.Framework;
 using MvcMovie.Models;
 using System;
 using System.Reflection;
+using System.Data;
 
 namespace AllUnitTests
 {
     [TestFixture]
     public class Tests
     {
-        DataSet ds = new DataSet();
+        MvcMovie.Models.DataSet ds = new MvcMovie.Models.DataSet();//This is where namespaces work
         [SetUp]
         public void BaseSetup()
         {
@@ -31,20 +32,37 @@ namespace AllUnitTests
             ds.CreateDataRow("GOOD",    "HIGH", "NO",   "R15k - R35k",  "MEDIUM");
             ds.CreateDataRow("GOOD",    "HIGH", "NO",   "> R35k",       "LOW");
             ds.CreateDataRow("BAD",     "HIGH", "NO",   "R15k - R35k",  "HIGH");
+
+ 
+
+            foreach (DataRow dataRow in ds.dt.Rows)//Changing this to var causes an error
+            {
+                foreach (var item in dataRow.ItemArray)
+                {
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine();
+            }
+            
         }
 
         [TearDown]
         public void BaseTearDown()
         {
-            ds = new DataSet();
+            ds = new MvcMovie.Models.DataSet();
         }
 
         [Test]
         public void isEntropyCalculatedCorrectly()
         {
-            MethodInfo methodInfo = typeof(DataSet).GetMethod("calcEntropy", BindingFlags.NonPublic | BindingFlags.Instance);
-            object[] parameters = { };
-            methodInfo.Invoke(ds, parameters);
+            //MethodInfo methodInfo = typeof(DataSet).GetMethod("calcEntropy", BindingFlags.NonPublic | BindingFlags.Instance);
+            //object[] parameters = { };
+            //double a = (double)methodInfo.Invoke(ds, parameters);
+            //Console.WriteLine("Entropy of table is: ");
+            //Console.WriteLine(a);
+            Console.WriteLine(ds.dt.Columns.Count);
+            Console.WriteLine("Entropy of table is (explicitly): ");
+            Console.WriteLine(ds.calcEntropy());
             //String[] ent1 = { "a", "a", "a", "a", "a" };
 
             //ds.CreateDataRow(ent1);
