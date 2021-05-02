@@ -55,19 +55,7 @@ namespace AllUnitTests
         [Test]
         public void isEntropyCalculatedCorrectly()
         {
-            //MethodInfo methodInfo = typeof(DataSet).GetMethod("calcEntropy", BindingFlags.NonPublic | BindingFlags.Instance);
-            //object[] parameters = { };
-            //double a = (double)methodInfo.Invoke(ds, parameters);
-            //Console.WriteLine("Entropy of table is: ");
-            //Console.WriteLine(a);
-            Console.WriteLine(ds.dt.Columns.Count);
-            Console.WriteLine("Entropy of table is (explicitly): ");
-            Console.WriteLine(ds.calcEntropy());
-            //String[] ent1 = { "a", "a", "a", "a", "a" };
-
-            //ds.CreateDataRow(ent1);
-            //Assert.AreEqual(ds.Row);
-            Assert.AreEqual(1, 1);
+            Assert.That(ds.calcEntropy(), Is.EqualTo(1.531).Within(0.001));
             Assert.Pass();
         }
 
