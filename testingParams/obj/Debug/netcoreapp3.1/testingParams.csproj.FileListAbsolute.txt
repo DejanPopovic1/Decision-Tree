@@ -1,0 +1,13 @@
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\bin\Debug\netcoreapp3.1\testingParams.exe
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\bin\Debug\netcoreapp3.1\testingParams.deps.json
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\bin\Debug\netcoreapp3.1\testingParams.runtimeconfig.json
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\bin\Debug\netcoreapp3.1\testingParams.runtimeconfig.dev.json
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\bin\Debug\netcoreapp3.1\testingParams.dll
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\bin\Debug\netcoreapp3.1\testingParams.pdb
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\obj\Debug\netcoreapp3.1\testingParams.csprojAssemblyReference.cache
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\obj\Debug\netcoreapp3.1\testingParams.AssemblyInfoInputs.cache
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\obj\Debug\netcoreapp3.1\testingParams.AssemblyInfo.cs
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\obj\Debug\netcoreapp3.1\testingParams.csproj.CoreCompileInputs.cache
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\obj\Debug\netcoreapp3.1\testingParams.dll
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\obj\Debug\netcoreapp3.1\testingParams.pdb
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\testingParams\obj\Debug\netcoreapp3.1\testingParams.genruntimeconfig.cache

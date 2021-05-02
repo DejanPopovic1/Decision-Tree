@@ -72,7 +72,6 @@ C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Web.WebPages.Razor.x
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\Newtonsoft.Json.xml
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\Antlr3.Runtime.pdb
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csprojAssemblyReference.cache
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csproj.CoreCompileInputs.cache
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csproj.CopyComplete
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.dll
@@ -85,3 +84,4 @@ C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.I
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csproj.GenerateResource.cache
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.Rating.resources
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.DataAnnotations.resources
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csprojAssemblyReference.cache

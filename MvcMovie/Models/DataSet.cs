@@ -19,8 +19,12 @@ namespace MvcMovie.Models
             dt.Rows.Add(dr);
         }
 
-        public DataRow CreateDataRow(string[] arr)
+        public DataRow CreateDataRow(params string[] arr)
         {
+            Console.WriteLine("String size is: ");
+            Console.WriteLine(arr.Length);
+            Console.WriteLine("Number of columns are: ");
+            Console.WriteLine(dt.Columns.Count);
             if (arr.Length != dt.Columns.Count) {
                 throw new Exception("Size mismatch between new row arguments and number of actual table arguments");
             }

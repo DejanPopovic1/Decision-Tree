@@ -1,5 +1,4 @@
 packages/
 MvcMovie/obj/
 MvcMovie/App_Data/
-MvcMovie/Migrations/
-MvcMovie/bin/
+MvcMovie/Migrations
