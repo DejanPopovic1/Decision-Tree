@@ -88,12 +88,19 @@ namespace MvcMovie.Models
             return listOfDistinctItems;
         }
 
-        private int numOfAttributeValueInDecision(DataTable dt, int attributeIndex, String distinctAttributeValue, String distinctDecision)
+        private int numOfAttributeValueInDecision(DataTable dt, int attributeIndex, String distinctAttributeValue, String decision)
         {
-
-            return 0;
-        
-        
+            int result = 0;
+            string keyIndexName = dt.Columns[attributeIndex].ColumnName;
+            string valueIndexName = dt.Columns[dt.Columns.Count - 1].ColumnName;
+            foreach (DataRow r in dt.Rows) 
+            {
+                if (r[keyIndexName].ToString() == distinctAttributeValue && r[valueIndexName].ToString() == decision)
+                {
+                    result++;
+                }
+            }
+            return result;
         }
 
         public double calcAttributeEntropyGain(DataTable dt, int attributeindex)
