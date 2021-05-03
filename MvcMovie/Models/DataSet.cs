@@ -77,7 +77,7 @@ namespace MvcMovie.Models
             return listOfDistinctItems;
         }
 
-        private int numOfAttributeValueInDecision(DataTable dt, int attributeIndex, String distinctAttributeValue, String decision)
+        public int numOfAttributeValueInDecision(DataTable dt, int attributeIndex, String distinctAttributeValue, String decision)
         {
             int result = 0;
             string keyIndexName = dt.Columns[attributeIndex].ColumnName;
@@ -99,25 +99,22 @@ namespace MvcMovie.Models
             List<String> distinctDecisions = distinctValues(dt, dt.Columns.Count - 1);
             Dictionary<string, int> attributeValueOccurances = columnOccurances(attributeindex);
             Dictionary<int, double> attributeValueEntropies = new Dictionary<int, double>();
-            int i = 0;
             double sumInner = 0;
             double sumOuter = 0;
             foreach (var distinctAttributeValue in distinctAttributeValues)
             {
                 foreach (var distinctDecision in distinctDecisions)
                 {
-                    int c = numOfAttributeValueInDecision(dt, i, distinctAttributeValue, distinctDecision);
+                    int c = numOfAttributeValueInDecision(dt, attributeindex, distinctAttributeValue, distinctDecision);
                     sumInner += calcEntropyTerm(c, attributeValueOccurances[distinctAttributeValue]);
                     Console.WriteLine("Sum inner: " + sumInner + "Input values: " + c + " " + attributeValueOccurances[distinctAttributeValue]);
                 }
                 sumOuter += (attributeValueOccurances[distinctAttributeValue]) * sumInner;
-                attributeValueEntropies.Add(i, sumInner);
+                Console.WriteLine(sumOuter);
                 sumInner = 0;
-                i++;
             }
             sumOuter /= entryCount;
-            //return (double)numOfAttributeValueInDecision(dt, 0, "BAD", "LOW");
-            return calcEntropy() + sumOuter;
+            return calcEntropy() - sumOuter;
         }
 
         public double calcEntropy()
@@ -136,8 +133,8 @@ namespace MvcMovie.Models
 
         public double calcEntropyTerm(int specificDecisionCount, int totalEntryCount) 
         {
-            if (totalEntryCount == 0) {
-                return -100;
+            if (specificDecisionCount == 0) {
+                return 0;
             }
             double r = (double)specificDecisionCount / totalEntryCount;
             return -r * Math.Log(r, (double)2);

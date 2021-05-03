@@ -75,5 +75,16 @@ namespace AllUnitTests
             Assert.Pass();
         }
 
+        [Test]
+        public void numOfDecisionsPerAttritureIsCorrect()
+        {
+            Assert.AreEqual(ds.numOfAttributeValueInDecision(ds.dt, 0, "BAD", "HIGH"), 3);
+            Assert.AreEqual(ds.numOfAttributeValueInDecision(ds.dt, 1, "HIGH", "HIGH"), 4);
+            Assert.AreEqual(ds.numOfAttributeValueInDecision(ds.dt, 2, "NO", "MEDIUM"), 2);
+            Assert.Pass();
+        }
+
+
+
     }
 }
