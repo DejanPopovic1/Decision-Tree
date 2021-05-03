@@ -35,14 +35,14 @@ namespace AllUnitTests
 
  
 
-            foreach (DataRow dataRow in ds.dt.Rows)//Changing this to var causes an error
-            {
-                foreach (var item in dataRow.ItemArray)
-                {
-                    Console.Write(item + " ");
-                }
-                Console.WriteLine();
-            }
+            //foreach (DataRow dataRow in ds.dt.Rows)//Changing this to var causes an error
+            //{
+            //    foreach (var item in dataRow.ItemArray)
+            //    {
+            //        Console.Write(item + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
             
         }
 
@@ -56,6 +56,14 @@ namespace AllUnitTests
         public void isEntropyCalculatedCorrectly()
         {
             Assert.That(ds.calcEntropy(), Is.EqualTo(1.531).Within(0.001));
+            Assert.Pass();
+        }
+
+        [Test]
+        public void calcEntropyTerm()
+        {
+
+            Assert.That(ds.calcEntropyTerm(3, 4), Is.EqualTo(0.31).Within(0.01));
             Assert.Pass();
         }
 
