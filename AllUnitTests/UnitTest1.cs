@@ -68,10 +68,12 @@ namespace AllUnitTests
         }
 
         [Test]
-        public void isAttribute1EntropyGainCalculatedCorrectly()
+        public void isAttributeEntropyGainCalculatedCorrectly()
         {
-
             Assert.That(ds.calcAttributeEntropyGain(ds.dt, 0), Is.EqualTo(0.266).Within(0.001));
+            Assert.That(ds.calcAttributeEntropyGain(ds.dt, 1), Is.EqualTo(0.063).Within(0.001));
+            Assert.That(ds.calcAttributeEntropyGain(ds.dt, 2), Is.EqualTo(0.207).Within(0.001));
+            Assert.That(ds.calcAttributeEntropyGain(ds.dt, 3), Is.EqualTo(0.967).Within(0.001));
             Assert.Pass();
         }
 
