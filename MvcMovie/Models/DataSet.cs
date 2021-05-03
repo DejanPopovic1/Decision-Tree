@@ -119,6 +119,7 @@ namespace MvcMovie.Models
                 {
                     int c = numOfAttributeValueInDecision(dt, i, distinctAttributeValue, distinctDecision);
                     sumInner += calcEntropyTerm(c, attributeValueOccurances[distinctAttributeValue]);
+                    Console.WriteLine("Sum inner: " + sumInner);
                 }
                 sumOuter += (attributeValueOccurances[distinctAttributeValue]) * sumInner;
                 attributeValueEntropies.Add(i, sumInner);
@@ -126,6 +127,7 @@ namespace MvcMovie.Models
                 i++;
             }
             sumOuter /= entryCount;
+            return (double)numOfAttributeValueInDecision(dt, 0, "BAD", "LOW");
             return calcEntropy() + sumOuter;
         }
 
@@ -145,6 +147,9 @@ namespace MvcMovie.Models
 
         private double calcEntropyTerm(int totalEntryCount, int specificDecisionCount) 
         {
+            if (totalEntryCount == 0) {
+                return 0;
+            }
             double r = (double)specificDecisionCount / totalEntryCount;
             return -r * Math.Log(r, (double)2);
         }
