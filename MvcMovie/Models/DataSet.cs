@@ -44,16 +44,19 @@ namespace MvcMovie.Models
 
 
 
-        private Dictionary<string, int> countColumnOccurances(int columnIndex)
+
+
+        private Dictionary<string, int> columnOccurances(int columnIndex)
         {
             string indexName = dt.Columns[columnIndex].ColumnName;
-            DataView view = new DataView(dt);
-            DataTable distinctColumnDT = view.ToTable(true, dt.Columns[columnIndex].ColumnName);
-            List<String> listOfDistinctItems = new List<String>();
-            foreach (DataRow r in distinctColumnDT.Rows)
-            {
-                listOfDistinctItems.Add(r[indexName].ToString());
-            }
+            //DataView view = new DataView(dt);
+            //DataTable distinctColumnDT = view.ToTable(true, dt.Columns[columnIndex].ColumnName);
+            //List<String> listOfDistinctItems = new List<String>();
+            //foreach (DataRow r in distinctColumnDT.Rows)
+            //{
+            //    listOfDistinctItems.Add(r[indexName].ToString());
+            //}
+            List<string> listOfDistinctItems = distinctValues(dt, columnIndex);
             var itemsAndTheirCount = new Dictionary<String, int>();
             int count = 0;
             
@@ -72,48 +75,58 @@ namespace MvcMovie.Models
             return itemsAndTheirCount;
         }
 
+        List<String> distinctValues(DataTable dt, int attributeIndex) 
+        {
+            string indexName = dt.Columns[attributeIndex].ColumnName;
+            DataView view = new DataView(dt);
+            DataTable distinctColumnDT = view.ToTable(true, dt.Columns[attributeIndex].ColumnName);
+            List<String> listOfDistinctItems = new List<String>();
+            foreach (DataRow r in distinctColumnDT.Rows)
+            {
+                listOfDistinctItems.Add(r[indexName].ToString());
+            }
+            return listOfDistinctItems;
+        }
 
+        private int numOfAttributeValueInDecision(DataTable dt, int attributeIndex, String distinctAttributeValue, String distinctDecision)
+        {
 
-
-
-
-
-
-        //private Dictionary<string, int> decisionCount()
-        //{
-        //    //Make a unique list of Items for the column of interest
-        //    var decisionIndex = dt.Columns.Count - 1;
-        //    string decisionIndexName = dt.Columns[decisionIndex].ColumnName;
-        //    DataView view = new DataView(dt);
-        //    DataTable distinctDecisionsDT = view.ToTable(true, dt.Columns[decisionIndex].ColumnName);
-        //    List<String> listOfDecisions = new List<String>();
-        //    foreach (DataRow r in distinctDecisionsDT.Rows)
-        //    {
-        //        listOfDecisions.Add(r[decisionIndexName].ToString());
-        //    }
-        //    //Associate each of these items with a count
-        //    var decisionsAndTheirCount = new Dictionary<String, int>();
-        //    int count = 0;
-        //    foreach (var l in listOfDecisions)
-        //    {
-        //        foreach (DataRow r in dt.Rows)
-        //        {
-        //            if (l == r[decisionIndexName].ToString())
-        //            {
-        //                count++;
-        //            }
-        //        }
-        //        decisionsAndTheirCount.Add(l, count);
-        //        count = 0;
-        //    }
-        //    return decisionsAndTheirCount;
-        //}
+            return 0;
         
+        
+        }
+
+        public double calcAttributeEntropyGain(DataTable dt, int attributeindex)
+        {
+            int entryCount = dt.Rows.Count;
+            List<String> distinctAttributeValues = distinctValues(dt, attributeindex);
+            List<String> distinctDecisions = distinctValues(dt, dt.Columns.Count - 1);
+            Dictionary<string, int> attributeValueOccurances = columnOccurances(attributeindex);
+            Dictionary<int, double> attributeValueEntropies = new Dictionary<int, double>();
+            int i = 0;
+            double sumInner = 0;
+            double sumOuter = 0;
+            foreach (var distinctAttributeValue in distinctAttributeValues)
+            {
+                foreach (var distinctDecision in distinctDecisions)
+                {
+                    int c = numOfAttributeValueInDecision(dt, i, distinctAttributeValue, distinctDecision);
+                    sumInner += calcEntropyTerm(c, attributeValueOccurances[distinctAttributeValue]);
+                }
+                sumOuter += (attributeValueOccurances[distinctAttributeValue]) * sumInner;
+                attributeValueEntropies.Add(i, sumInner);
+                sumInner = 0;
+                i++;
+            }
+            sumOuter /= entryCount;
+            return calcEntropy() + sumOuter;
+        }
+
         public double calcEntropy()
         {
             int entryCount = dt.Rows.Count;
 
-            Dictionary<string, int> decisionCounts = countColumnOccurances(dt.Columns.Count - 1);
+            Dictionary<string, int> decisionCounts = columnOccurances(dt.Columns.Count - 1);
             double sum = 0;
             foreach (KeyValuePair<String, int> entry in decisionCounts) 
             {

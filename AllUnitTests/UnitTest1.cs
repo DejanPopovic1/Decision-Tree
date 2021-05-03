@@ -60,8 +60,9 @@ namespace AllUnitTests
         }
 
         [Test]
-        public void Test2()
+        public void isAttributesEntropyGainCalculatedCorrectly()
         {
+
             Assert.AreEqual(3, 3);
             Assert.Pass();
         }
