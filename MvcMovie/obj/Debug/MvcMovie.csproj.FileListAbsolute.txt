@@ -85,3 +85,13 @@ C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csproj.Gener
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.Rating.resources
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.DataAnnotations.resources
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csprojAssemblyReference.cache
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Buffers.dll
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Collections.Immutable.dll
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Memory.dll
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Numerics.Vectors.dll
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Buffers.xml
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Collections.Immutable.xml
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Memory.xml
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Numerics.Vectors.xml
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\MvcMovie\bin\System.Runtime.CompilerServices.Unsafe.xml

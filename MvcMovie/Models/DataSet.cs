@@ -38,7 +38,7 @@ namespace MvcMovie.Models
             //return dr;
         }
 
-        public void filterTable(String attribute, String attributeValue)
+        public DataTable filterTable(String attribute, String attributeValue)
         {
             DataView dv = new DataView(dt);
             String var1 = attribute;
@@ -57,11 +57,12 @@ namespace MvcMovie.Models
                 }
                 Console.WriteLine();
             }
+            return dt;
         }
 
-        public void filterDataByAttributeValue()
+        public void createDecicionTreeNode()
         {
-            determineNode();
+            int n = determineNode();
 
 
 

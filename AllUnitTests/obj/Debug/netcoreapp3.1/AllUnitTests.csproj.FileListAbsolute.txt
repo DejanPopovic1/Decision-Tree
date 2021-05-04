@@ -130,3 +130,4 @@ C:\C_C++ Code\CSharpHelloWorld\MvcMovie\AllUnitTests\bin\Debug\netcoreapp3.1\run
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\AllUnitTests\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\AllUnitTests\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 C:\C_C++ Code\CSharpHelloWorld\MvcMovie\AllUnitTests\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+C:\C_C++ Code\CSharpHelloWorld\MvcMovie\AllUnitTests\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll

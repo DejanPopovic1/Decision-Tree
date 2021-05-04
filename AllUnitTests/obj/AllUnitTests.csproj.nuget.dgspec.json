@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[3.17.0, )"
             },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "TestToolsToXunitProxy": {
               "target": "Package",
               "version": "[0.0.4, )"
