@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using MvcMovie.Models;
 using System.Collections.Immutable;
+using System.Data;
 
 namespace MvcMovie.Models
 {
@@ -50,8 +51,31 @@ namespace MvcMovie.Models
             return children.Remove(key);
         }
 
+        public void Traverse(Action<T> action)
+        {
+            action(Value);
+            foreach (var child in children)
+            {
+                child.Value.Traverse(action);
+            }
+        }
 
+        void printNode()
+        {
+            //System.Data.DataTable test = T as System.Data.DataTable;
+            //System.Data.DataTable ds = t as System.Data.DataTable;
 
+            DataSet dx = ds as DataSet;
+
+            foreach (DataRow dataRow in dx.dt.Rows)
+            {
+                foreach (var item in dataRow.ItemArray)
+                {
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine();
+            }
+        }
 
 
     }
