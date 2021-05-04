@@ -96,5 +96,23 @@ namespace AllUnitTests
         {
             ds.filterTable("Debt", "LOW");
         }
+
+        //public delegate void funcPtr(T x);
+
+        [Test]
+        public void testTraverse()
+        {
+            TreeNode<MvcMovie.Models.DataSet> tn = new TreeNode<MvcMovie.Models.DataSet>(ds);
+            tn.ds.determineNode();
+
+
+            //Todo: Create tree
+            //Todo: Test tree traversal by printing tree
+            //MvcMovie.Models.funcPtr = tn.printNode;
+            //funcPtr fPtr = tn.printNode;
+            //MvcMovie.Models.DataSet dummy;
+            tn.Traverse();
+        }
+
     }
 }

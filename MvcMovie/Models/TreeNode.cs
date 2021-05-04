@@ -11,7 +11,7 @@ namespace MvcMovie.Models
 {
     public class TreeNode<T>
     {
-        private T ds;
+        public T ds;
         //private Dictionary<String, TreeNode<T>> branchNode = new Dictionary<String, TreeNode<T>>();
         private Dictionary<String, TreeNode<T>> children = new Dictionary<String, TreeNode<T>>();
 
@@ -51,16 +51,17 @@ namespace MvcMovie.Models
             return children.Remove(key);
         }
 
-        public void Traverse(Action<T> action)
+        public void Traverse(/*Action action*/)//Action<T>
         {
-            action(Value);
+            printNode();
+            //action();
             foreach (var child in children)
             {
-                child.Value.Traverse(action);
+                child.Value.Traverse(/*action*/);
             }
         }
 
-        void printNode()
+        public void printNode()
         {
             //System.Data.DataTable test = T as System.Data.DataTable;
             //System.Data.DataTable ds = t as System.Data.DataTable;
@@ -75,6 +76,7 @@ namespace MvcMovie.Models
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("=x0x0x0x0x===x0x0x0x0x0====x0x0x0x0====");
         }
 
 
