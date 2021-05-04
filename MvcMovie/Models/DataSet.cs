@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using static System.Collections.IEnumerable;
 
 namespace MvcMovie.Models
 {
@@ -37,8 +38,33 @@ namespace MvcMovie.Models
             //return dr;
         }
 
-        public void generateDecisionTree()
-        { 
+        public void filterTable(String attribute, String attributeValue)
+        {
+            DataView dv = new DataView(dt);
+            String var1 = attribute;
+            String var2 = attributeValue;
+            //dv.RowFilter = "{var1} = '{var2}'";
+            String filterString = String.Format("{0} = '{1}'", var1, var2);
+            //dv.RowFilter = "Income = '< R15k'";
+            dv.RowFilter = filterString;
+            dt = dv.ToTable();
+            //determineNode();
+            foreach (DataRow dataRow in dt.Rows)
+            {
+                foreach (var item in dataRow.ItemArray)
+                {
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void filterDataByAttributeValue()
+        {
+            determineNode();
+
+
+
 
         }
 

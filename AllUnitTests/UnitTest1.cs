@@ -18,7 +18,7 @@ namespace AllUnitTests
             ds.addAttribute("Collateral");
             ds.addAttribute("Income");
             ds.addAttribute("Risk");
-            ds.CreateDataRow("BAD",     "HIGH", "NO",   "< R15K",       "HIGH");
+            ds.CreateDataRow("BAD",     "HIGH", "NO",   "< R15k",       "HIGH");
             ds.CreateDataRow("UNKNOWN", "HIGH", "NO",   "R15k - R35k",  "HIGH");
             ds.CreateDataRow("UNKNOWN", "LOW",  "NO",   "R15k - R35k",  "MEDIUM");
             ds.CreateDataRow("UNKNOWN", "LOW",  "NO",   "< R15K",       "HIGH");
@@ -35,14 +35,7 @@ namespace AllUnitTests
 
  
 
-            //foreach (DataRow dataRow in ds.dt.Rows)//Changing this to var causes an error
-            //{
-            //    foreach (var item in dataRow.ItemArray)
-            //    {
-            //        Console.Write(item + " ");
-            //    }
-            //    Console.WriteLine();
-            //}
+
             
         }
 
@@ -93,7 +86,15 @@ namespace AllUnitTests
             Assert.Pass();
         }
 
-
-
+        [Test]
+        public void isTableFilteringCorrectly1()
+        {
+            ds.filterTable("Income", "< R15k");
+        }
+        [Test]
+        public void isTableFilteringCorrectly2()
+        {
+            ds.filterTable("Debt", "LOW");
+        }
     }
 }
