@@ -107,10 +107,10 @@ namespace MvcMovie.Models
                 {
                     int c = numOfAttributeValueInDecision(dt, attributeindex, distinctAttributeValue, distinctDecision);
                     sumInner += calcEntropyTerm(c, attributeValueOccurances[distinctAttributeValue]);
-                    Console.WriteLine("Sum inner: " + sumInner + "Input values: " + c + " " + attributeValueOccurances[distinctAttributeValue]);
+                   // Console.WriteLine("Sum inner: " + sumInner + "Input values: " + c + " " + attributeValueOccurances[distinctAttributeValue]);
                 }
                 sumOuter += (attributeValueOccurances[distinctAttributeValue]) * sumInner;
-                Console.WriteLine(sumOuter);
+               // Console.WriteLine(sumOuter);
                 sumInner = 0;
             }
             sumOuter /= entryCount;
@@ -129,6 +129,26 @@ namespace MvcMovie.Models
                 sum += calcEntropyTerm(v, entryCount);
             }
             return sum;
+        }
+
+        public int determineNode()
+        {
+            double maxEntropyGain = 0;
+            int maxEntropyGainIndex = 0;
+            foreach (DataColumn dc in dt.Columns) 
+            {
+                if (dt.Columns.IndexOf(dc) == dt.Columns.Count - 1) {
+                    break;
+                }
+                double attEntropyGain = calcAttributeEntropyGain(dt, dt.Columns.IndexOf(dc));
+                Console.WriteLine(attEntropyGain);
+                if (attEntropyGain > maxEntropyGain) 
+                {
+                    maxEntropyGain = attEntropyGain;
+                    maxEntropyGainIndex = dt.Columns.IndexOf(dc);
+                }
+            }
+            return maxEntropyGainIndex;
         }
 
         public double calcEntropyTerm(int specificDecisionCount, int totalEntryCount) 

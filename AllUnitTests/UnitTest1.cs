@@ -86,6 +86,13 @@ namespace AllUnitTests
             Assert.Pass();
         }
 
+        [Test]
+        public void determineNode()
+        {
+            Assert.AreEqual(ds.determineNode(), 3);
+            Assert.Pass();
+        }
+
 
 
     }
