@@ -9,7 +9,17 @@ namespace MvcMovie.Models
 {
     public class DataSet
     {
-        public DataTable dt = new DataTable();
+        public DataTable dt;
+
+        public DataSet() 
+        {
+            dt = new DataTable();
+        }
+
+        public DataSet(DataTable dtArg)
+        {
+            dt = dtArg;
+        }
 
         //By convention, the last column in the table is the decision
         public void addAttribute(String attribute) {
@@ -49,15 +59,17 @@ namespace MvcMovie.Models
             dv.RowFilter = filterString;
             dt = dv.ToTable();
             //determineNode();
-            foreach (DataRow dataRow in dt.Rows)
-            {
-                foreach (var item in dataRow.ItemArray)
-                {
-                    Console.Write(item + " ");
-                }
-                Console.WriteLine();
-            }
-            return dt;
+
+            //foreach (DataRow dataRow in dt.Rows)
+            //{
+            //    foreach (var item in dataRow.ItemArray)
+            //    {
+            //        Console.Write(item + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            return dt;//At this point, dt is a new instance and not the filtered version of this classed instance of dt
         }
 
         public void createDecicionTreeNode()

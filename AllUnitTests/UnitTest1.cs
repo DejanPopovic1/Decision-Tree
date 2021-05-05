@@ -103,7 +103,40 @@ namespace AllUnitTests
         public void testTraverse()
         {
             TreeNode<MvcMovie.Models.DataSet> tn = new TreeNode<MvcMovie.Models.DataSet>(ds);
-            tn.ds.determineNode();
+
+            MvcMovie.Models.DataSet dsA = new MvcMovie.Models.DataSet(ds.filterTable("Income", "< R15k"));
+            MvcMovie.Models.DataSet dsB = new MvcMovie.Models.DataSet(ds.filterTable("Income", "R15k - R35k"));
+            MvcMovie.Models.DataSet dsC = new MvcMovie.Models.DataSet(ds.filterTable("Income", "> R35k"));
+
+            tn.AddChild("< R15k", dsA);
+            tn.AddChild("R15k - R35k", dsB);
+            tn.AddChild("> R35k", dsC);
+
+            var a = tn.Children["< R15k"];
+            var b = tn.Children["R15k - R35k"];
+            var c = tn.Children["> R35k"];
+
+            //a.printNode();
+            b.printNode();
+            //c.printNode();
+
+            //tn.Traverse();
+
+            //DataTable a = ;
+            //DataTable b = ds.filterTable("Income", "R15k - R35k");
+            //DataTable c = ds.filterTable("Income", "> R35k");
+
+            //tn.AddChild("< R15k", a);
+
+            //int i = ds.determineNode();
+            // tn.AddChild();
+            // ds.filterTable();
+
+
+            //tn.ds.determineNode();
+            //MvcMovie.Models.DataSet ds = new MvcMovie.Models.DataSet();
+
+            //TreeNode<MvcMovie.Models.DataSet> tn2 = tn.AddChild("Test", tn);
 
 
             //Todo: Create tree
@@ -111,7 +144,7 @@ namespace AllUnitTests
             //MvcMovie.Models.funcPtr = tn.printNode;
             //funcPtr fPtr = tn.printNode;
             //MvcMovie.Models.DataSet dummy;
-            tn.Traverse();
+
         }
 
     }
