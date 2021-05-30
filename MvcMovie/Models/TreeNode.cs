@@ -82,5 +82,11 @@ namespace MvcMovie.Models
         }
 
 
+        public void makeDecisionTree() { 
+        
+        
+        
+        }
+
     }
 }

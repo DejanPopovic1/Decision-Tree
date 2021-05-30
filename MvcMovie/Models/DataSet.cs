@@ -21,6 +21,13 @@ namespace MvcMovie.Models
             dt = dtArg;
         }
 
+        public DataSet Copy() 
+        {
+            DataSet ans = new DataSet();
+            ans.dt = dt.Copy();
+            return ans;
+        }
+
         //By convention, the last column in the table is the decision
         public void addAttribute(String attribute) {
             dt.Columns.Add(attribute, typeof(String));// We can also create a row object and Add it as that object in which case Add is overloaded with that signature
@@ -50,14 +57,15 @@ namespace MvcMovie.Models
 
         public DataTable filterTable(String attribute, String attributeValue)
         {
-            DataView dv = new DataView(dt);
+            DataTable dtCpy = dt.Copy();
+            DataView dv = new DataView(dtCpy);
             String var1 = attribute;
             String var2 = attributeValue;
             //dv.RowFilter = "{var1} = '{var2}'";
             String filterString = String.Format("{0} = '{1}'", var1, var2);
             //dv.RowFilter = "Income = '< R15k'";
             dv.RowFilter = filterString;
-            dt = dv.ToTable();
+            dtCpy = dv.ToTable();
             //determineNode();
 
             //foreach (DataRow dataRow in dt.Rows)
@@ -68,8 +76,11 @@ namespace MvcMovie.Models
             //    }
             //    Console.WriteLine();
             //}
+            
 
-            return dt;//At this point, dt is a new instance and not the filtered version of this classed instance of dt
+
+
+            return dtCpy;//At this point, dt is a new instance and not the filtered version of this classed instance of dt
         }
 
         public void createDecicionTreeNode()
