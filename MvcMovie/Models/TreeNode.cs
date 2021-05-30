@@ -53,12 +53,14 @@ namespace MvcMovie.Models
 
         public void Traverse(/*Action action*/)//Action<T>
         {
-            printNode();
+            //printNode();
             //action();
             foreach (var child in children)
             {
                 child.Value.Traverse(/*action*/);
+               
             }
+            Console.WriteLine("Testing 1 2 3");
         }
 
         public void printNode()
@@ -72,9 +74,9 @@ namespace MvcMovie.Models
             {
                 foreach (var item in dataRow.ItemArray)
                 {
-                    Console.Write(item + " ");
+                    Console.Write(item + "testing ");
                 }
-                Console.WriteLine();
+               // Console.WriteLine();
             }
             Console.WriteLine("=x0x0x0x0x===x0x0x0x0x0====x0x0x0x0====");
         }

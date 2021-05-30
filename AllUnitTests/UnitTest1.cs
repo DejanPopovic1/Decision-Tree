@@ -112,15 +112,17 @@ namespace AllUnitTests
             tn.AddChild("R15k - R35k", dsB);
             tn.AddChild("> R35k", dsC);
 
-            var a = tn.Children["< R15k"];
-            var b = tn.Children["R15k - R35k"];
-            var c = tn.Children["> R35k"];
+            TreeNode<MvcMovie.Models.DataSet> a = tn.Children["< R15k"];
+            TreeNode<MvcMovie.Models.DataSet> b = tn.Children["R15k - R35k"];
+            TreeNode<MvcMovie.Models.DataSet> c = tn.Children["> R35k"];
 
             //a.printNode();
-            b.printNode();
+            //b.printNode();
             //c.printNode();
 
-            //tn.Traverse();
+            tn.Traverse();
+
+            Console.WriteLine("Consructing Tree:... ");
 
             //DataTable a = ;
             //DataTable b = ds.filterTable("Income", "R15k - R35k");

@@ -180,7 +180,7 @@ namespace MvcMovie.Models
                     break;
                 }
                 double attEntropyGain = calcAttributeEntropyGain(dt, dt.Columns.IndexOf(dc));
-                Console.WriteLine(attEntropyGain);
+                Console.WriteLine("Attribute entropy gain: " + attEntropyGain);
                 if (attEntropyGain > maxEntropyGain) 
                 {
                     maxEntropyGain = attEntropyGain;
