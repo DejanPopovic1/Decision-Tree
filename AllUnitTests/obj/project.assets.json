@@ -8649,11 +8649,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\C_C++ Code PORTFOLIO\\CSharpHelloWorld\\MvcMovie\\AllUnitTests\\AllUnitTests.csproj",
+      "projectUniqueName": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\AllUnitTests\\AllUnitTests.csproj",
       "projectName": "AllUnitTests",
-      "projectPath": "C:\\C_C++ Code PORTFOLIO\\CSharpHelloWorld\\MvcMovie\\AllUnitTests\\AllUnitTests.csproj",
+      "projectPath": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\AllUnitTests\\AllUnitTests.csproj",
       "packagesPath": "C:\\Users\\DejanP\\.nuget\\packages\\",
-      "outputPath": "C:\\C_C++ Code PORTFOLIO\\CSharpHelloWorld\\MvcMovie\\AllUnitTests\\obj\\",
+      "outputPath": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\AllUnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DejanP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8670,8 +8670,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\C_C++ Code PORTFOLIO\\CSharpHelloWorld\\MvcMovie\\MvcMovie\\MvcMovie.csproj": {
-              "projectPath": "C:\\C_C++ Code PORTFOLIO\\CSharpHelloWorld\\MvcMovie\\MvcMovie\\MvcMovie.csproj"
+            "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\MvcMovie.csproj": {
+              "projectPath": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\MvcMovie.csproj"
             }
           }
         }
