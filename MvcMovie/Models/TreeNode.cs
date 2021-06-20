@@ -13,7 +13,7 @@ namespace MvcMovie.Models
     {
         public T ds;
         //private Dictionary<String, TreeNode<T>> branchNode = new Dictionary<String, TreeNode<T>>();
-        private Dictionary<String, TreeNode<T>> children = new Dictionary<String, TreeNode<T>>();
+        public Dictionary<String, TreeNode<T>> children = new Dictionary<String, TreeNode<T>>();
 
         public TreeNode(T value)
         {

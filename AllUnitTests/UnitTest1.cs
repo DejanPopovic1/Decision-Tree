@@ -128,7 +128,12 @@ namespace AllUnitTests
             MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
             TreeNode<MvcMovie.Models.DataSet> k = g.AddChild("HIGH", kD);
             TreeNode<MvcMovie.Models.DataSet> l = g.AddChild("LOW", lD);
-            a.Traverse();
+            //Assertions
+            Assert.AreEqual(a.children.Count, 3);
+            Assert.AreEqual(b.children.Count, 0);
+            Assert.AreEqual(c.children.Count, 3);
+            Assert.AreEqual(d.children.Count, 3);
+            Assert.AreEqual(g.children.Count, 2);
         }
     }
 }
