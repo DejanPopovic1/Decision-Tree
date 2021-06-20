@@ -154,7 +154,7 @@ namespace AllUnitTests
             MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
 
             TreeNode<MvcMovie.Models.DataSet> constructedFNode = a.children["15k - 35k"].children["GOOD"];
-            Assert.AreEqual(constructedFNode, fD);
+            Assert.AreEqual(constructedFNode.getValue, fD);
         }
     }
 }
