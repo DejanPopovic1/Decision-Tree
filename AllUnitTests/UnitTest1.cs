@@ -139,16 +139,16 @@ namespace AllUnitTests
             //Console.WriteLine("-----");
             //e.Traverse();
             //Console.WriteLine("-----");
-            a.Traverse();
+
 
             ////Level 3 construction
-            //MvcMovie.Models.DataSet kD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "HIGH"));
-            //MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
+            MvcMovie.Models.DataSet kD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "HIGH"));
+            MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
             //TreeNode<MvcMovie.Models.DataSet> k = new TreeNode<MvcMovie.Models.DataSet>(kD.Copy());
             //TreeNode<MvcMovie.Models.DataSet> l = new TreeNode<MvcMovie.Models.DataSet>(lD.Copy());
-            //g.AddChild("HIGH", k.ds);
-            //g.AddChild("LOW", l.ds);
-
+            TreeNode<MvcMovie.Models.DataSet> k = g.AddChild("HIGH", kD);
+            TreeNode<MvcMovie.Models.DataSet> l = g.AddChild("LOW", lD);
+            a.Traverse();
 
 
 
