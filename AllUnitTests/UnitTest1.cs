@@ -104,40 +104,42 @@ namespace AllUnitTests
         {
             //Manually constructing the decision tree
             //Level 0 and Level 1 construction
-            TreeNode<MvcMovie.Models.DataSet> tn = new TreeNode<MvcMovie.Models.DataSet>(ds);
+            TreeNode<MvcMovie.Models.DataSet> a = new TreeNode<MvcMovie.Models.DataSet>(ds);
             MvcMovie.Models.DataSet bD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "< R15k"));
             MvcMovie.Models.DataSet cD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "R15k - R35k"));
             MvcMovie.Models.DataSet dD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "> R35k"));
-            TreeNode<MvcMovie.Models.DataSet> b = new TreeNode<MvcMovie.Models.DataSet>(bD);
-            TreeNode<MvcMovie.Models.DataSet> c = new TreeNode<MvcMovie.Models.DataSet>(cD);
-            TreeNode<MvcMovie.Models.DataSet> d = new TreeNode<MvcMovie.Models.DataSet>(dD);
-            tn.AddChild("< R15k", b.ds);
-            tn.AddChild("R15k - R35k", c.ds);
-            tn.AddChild("> R35k", d.ds);
+            //TreeNode<MvcMovie.Models.DataSet> b = new TreeNode<MvcMovie.Models.DataSet>(bD);
+            //TreeNode<MvcMovie.Models.DataSet> c = new TreeNode<MvcMovie.Models.DataSet>(cD);
+            //TreeNode<MvcMovie.Models.DataSet> d = new TreeNode<MvcMovie.Models.DataSet>(dD);
+            TreeNode<MvcMovie.Models.DataSet> b = a.AddChild("< R15k", bD);
+            TreeNode<MvcMovie.Models.DataSet> c = a.AddChild("R15k - R35k", cD);
+            TreeNode<MvcMovie.Models.DataSet> d = a.AddChild("> R35k", dD);
             //Level 2 construction
             MvcMovie.Models.DataSet eD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "BAD"));
-            MvcMovie.Models.DataSet fD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "GOOD"));
-            MvcMovie.Models.DataSet gD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "UNKNOWN"));
-            MvcMovie.Models.DataSet hD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "BAD"));
-            MvcMovie.Models.DataSet iD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "GOOD"));
-            MvcMovie.Models.DataSet jD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "UNKNOWN"));
-            TreeNode<MvcMovie.Models.DataSet> e = new TreeNode<MvcMovie.Models.DataSet>(eD);
-            TreeNode<MvcMovie.Models.DataSet> f = new TreeNode<MvcMovie.Models.DataSet>(fD);
-            TreeNode<MvcMovie.Models.DataSet> g = new TreeNode<MvcMovie.Models.DataSet>(gD);
-            TreeNode<MvcMovie.Models.DataSet> h = new TreeNode<MvcMovie.Models.DataSet>(hD);
-            TreeNode<MvcMovie.Models.DataSet> i = new TreeNode<MvcMovie.Models.DataSet>(iD);
-            TreeNode<MvcMovie.Models.DataSet> j = new TreeNode<MvcMovie.Models.DataSet>(jD);
-            c.AddChild("BAD", e.ds);
-            c.AddChild("GOOD", f.ds);
-            c.AddChild("UNKNOWN", g.ds);
-            d.AddChild("BAD", h.ds);
-            d.AddChild("GOOD", i.ds);
-            d.AddChild("UNKNOWN", j.ds);
-
-
-            tn.Traverse();
-
-
+            //MvcMovie.Models.DataSet fD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "GOOD"));
+            //MvcMovie.Models.DataSet gD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "UNKNOWN"));
+            //MvcMovie.Models.DataSet hD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "BAD"));
+            //MvcMovie.Models.DataSet iD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "GOOD"));
+            //MvcMovie.Models.DataSet jD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "UNKNOWN"));
+            //TreeNode<MvcMovie.Models.DataSet> e = new TreeNode<MvcMovie.Models.DataSet>(eD);
+            //TreeNode<MvcMovie.Models.DataSet> f = new TreeNode<MvcMovie.Models.DataSet>(fD);
+            //TreeNode<MvcMovie.Models.DataSet> g = new TreeNode<MvcMovie.Models.DataSet>(gD);
+            //TreeNode<MvcMovie.Models.DataSet> h = new TreeNode<MvcMovie.Models.DataSet>(hD);
+            //TreeNode<MvcMovie.Models.DataSet> i = new TreeNode<MvcMovie.Models.DataSet>(iD);
+            //TreeNode<MvcMovie.Models.DataSet> j = new TreeNode<MvcMovie.Models.DataSet>(jD);
+            //c.AddChild("BAD", eD);
+            //c.AddChild("GOOD", f.ds);
+            //c.AddChild("UNKNOWN", g.ds);
+            //d.AddChild("BAD", h.ds);
+            //d.AddChild("GOOD", i.ds);
+            //d.AddChild("UNKNOWN", j.ds);
+            //a.Traverse();
+            //Console.WriteLine("-----");
+            //c.Traverse();
+            //Console.WriteLine("-----");
+            //e.Traverse();
+            //Console.WriteLine("-----");
+            a.Traverse();
 
             ////Level 3 construction
             //MvcMovie.Models.DataSet kD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "HIGH"));

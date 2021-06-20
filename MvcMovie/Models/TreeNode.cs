@@ -30,7 +30,7 @@ namespace MvcMovie.Models
         public TreeNode<T> Parent { get; private set; }
 
         //A non-auto property
-        public T Value { get { return ds; } }
+        public T getValue { get { return ds; } }
 
         public ImmutableDictionary <String, TreeNode<T>> Children
         {
@@ -57,6 +57,7 @@ namespace MvcMovie.Models
             //action();
             foreach (var child in children)
             {
+                
                 child.Value.Traverse(/*action*/);
                
             }
