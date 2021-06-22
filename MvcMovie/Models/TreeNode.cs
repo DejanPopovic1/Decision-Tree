@@ -9,11 +9,19 @@ using System.Data;
 
 namespace MvcMovie.Models
 {
+    public struct BranchNodePair {
+        String branch;
+        String node;    
+    }
+
+
     public class TreeNode<T>
     {
         public T ds;
         //private Dictionary<String, TreeNode<T>> branchNode = new Dictionary<String, TreeNode<T>>();
         public Dictionary<String, TreeNode<T>> children = new Dictionary<String, TreeNode<T>>();
+
+        public List<BranchNodePair> decisionChildren = new List<BranchNodePair>();
 
         public TreeNode(T value)
         {
@@ -82,11 +90,10 @@ namespace MvcMovie.Models
             Console.WriteLine("=x0x0x0x0x===x0x0x0x0x0====x0x0x0x0====");
         }
 
-
-        public void constructDecisionTree() { 
-        
-        
-        
+        public void constructDecisionTree() {
+            int index = (ds as DataSet).determineNode();
+            AddChild(); (ds as DataSet).dt.Columns[index].ColumnName;
+            Console.WriteLine("=x0x0x0x0x===x0x0x0x0x0====x0x0x0x0====");
         }
 
     }
