@@ -54,6 +54,12 @@ namespace MvcMovie.Models
             return node;
         }
 
+        //We are returning a reference to a child
+        public void AddDecisionChild(BranchNodePair i)
+        {
+            decisionChildren.Add(i); 
+        }
+
         public bool RemoveChild(String key)
         {
             return children.Remove(key);
