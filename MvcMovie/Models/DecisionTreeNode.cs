@@ -39,17 +39,19 @@ namespace MvcMovie.Models
         }
 
         //Use Traverse() and delegates to simplify this
-        public String recursivelyConstructDecisionTreeLevels()
+        public void recursivelyConstructDecisionTreeLevels()
         {
             int index = ds.determineNode();
             node = ds.dt.Columns[index].ColumnName;
             branch = ds.distinctValues(ds.dt, index);
-            List<DataSet> dsl = new List<DataSet>();
+            //Refactor this as a function being a part of DataSet
+            if ((ds.distinctValues(ds.dt, ds.dt.Columns.Count - 1)).Count == 1) { 
+                return;
+            }
             foreach (var d in branch) {
                 decisionChildren.Add(new DecisionTreeNode(new DataSet(ds.filterTable(node, d))));
-                //dsl.Add(ds.filterTable(node, d));
             }
-           
+            
 
             
 
@@ -58,7 +60,8 @@ namespace MvcMovie.Models
             //}
 
 
-            return node;
+            //return node;
+
             //BranchNodePair bnp;
             //bnp.branch = "";
             //bnp.node = cn;
