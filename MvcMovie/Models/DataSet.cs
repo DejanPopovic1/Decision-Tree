@@ -114,7 +114,8 @@ namespace MvcMovie.Models
             return itemsAndTheirCount;
         }
 
-        List<String> distinctValues(DataTable dt, int attributeIndex) 
+        //Rather use the dt value in this as opposed to a parameter
+        public List<String> distinctValues(DataTable dt, int attributeIndex) 
         {
             string indexName = dt.Columns[attributeIndex].ColumnName;
             DataView view = new DataView(dt);

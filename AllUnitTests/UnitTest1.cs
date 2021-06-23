@@ -97,49 +97,49 @@ namespace AllUnitTests
             ds.filterTable("Debt", "LOW");
         }
 
-        //public delegate void funcPtr(T x);
-        //Refer to drawn diagram for numbering
-        [Test]
-        public void testTraverse()
-        {
-            //Level 0 and Level 1 construction
-            TreeNode<MvcMovie.Models.DataSet> a = new TreeNode<MvcMovie.Models.DataSet>(ds);
-            MvcMovie.Models.DataSet bD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "< R15k"));
-            MvcMovie.Models.DataSet cD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "R15k - R35k"));
-            MvcMovie.Models.DataSet dD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "> R35k"));
-            TreeNode<MvcMovie.Models.DataSet> b = a.AddChild("< R15k", bD);
-            TreeNode<MvcMovie.Models.DataSet> c = a.AddChild("R15k - R35k", cD);
-            TreeNode<MvcMovie.Models.DataSet> d = a.AddChild("> R35k", dD);
-            //Level 2 construction
-            MvcMovie.Models.DataSet eD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "BAD"));
-            MvcMovie.Models.DataSet fD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "GOOD"));
-            MvcMovie.Models.DataSet gD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "UNKNOWN"));
-            MvcMovie.Models.DataSet hD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "BAD"));
-            MvcMovie.Models.DataSet iD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "GOOD"));
-            MvcMovie.Models.DataSet jD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "UNKNOWN"));
-            TreeNode<MvcMovie.Models.DataSet> e = c.AddChild("BAD", eD);
-            TreeNode<MvcMovie.Models.DataSet> f = c.AddChild("GOOD", fD);
-            TreeNode<MvcMovie.Models.DataSet> g = c.AddChild("UNKNOWN", gD);
-            TreeNode<MvcMovie.Models.DataSet> h = d.AddChild("BAD", hD);
-            TreeNode<MvcMovie.Models.DataSet> i = d.AddChild("GOOD", iD);
-            TreeNode<MvcMovie.Models.DataSet> j = d.AddChild("UNKNOWN", jD);
-            //Level 3 construction
-            MvcMovie.Models.DataSet kD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "HIGH"));
-            MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
-            TreeNode<MvcMovie.Models.DataSet> k = g.AddChild("HIGH", kD);
-            TreeNode<MvcMovie.Models.DataSet> l = g.AddChild("LOW", lD);
-            //Assertions
-            Assert.AreEqual(a.children.Count, 3);
-            Assert.AreEqual(b.children.Count, 0);
-            Assert.AreEqual(c.children.Count, 3);
-            Assert.AreEqual(d.children.Count, 3);
-            Assert.AreEqual(g.children.Count, 2);
-        }
+        ////public delegate void funcPtr(T x);
+        ////Refer to drawn diagram for numbering
+        //[Test]
+        //public void testTraverse()
+        //{
+        //    //Level 0 and Level 1 construction
+        //    TreeNode<MvcMovie.Models.DataSet> a = new TreeNode<MvcMovie.Models.DataSet>(ds);
+        //    MvcMovie.Models.DataSet bD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "< R15k"));
+        //    MvcMovie.Models.DataSet cD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "R15k - R35k"));
+        //    MvcMovie.Models.DataSet dD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "> R35k"));
+        //    TreeNode<MvcMovie.Models.DataSet> b = a.AddChild("< R15k", bD);
+        //    TreeNode<MvcMovie.Models.DataSet> c = a.AddChild("R15k - R35k", cD);
+        //    TreeNode<MvcMovie.Models.DataSet> d = a.AddChild("> R35k", dD);
+        //    //Level 2 construction
+        //    MvcMovie.Models.DataSet eD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "BAD"));
+        //    MvcMovie.Models.DataSet fD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "GOOD"));
+        //    MvcMovie.Models.DataSet gD = new MvcMovie.Models.DataSet(cD.filterTable("CreditHistory", "UNKNOWN"));
+        //    MvcMovie.Models.DataSet hD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "BAD"));
+        //    MvcMovie.Models.DataSet iD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "GOOD"));
+        //    MvcMovie.Models.DataSet jD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "UNKNOWN"));
+        //    TreeNode<MvcMovie.Models.DataSet> e = c.AddChild("BAD", eD);
+        //    TreeNode<MvcMovie.Models.DataSet> f = c.AddChild("GOOD", fD);
+        //    TreeNode<MvcMovie.Models.DataSet> g = c.AddChild("UNKNOWN", gD);
+        //    TreeNode<MvcMovie.Models.DataSet> h = d.AddChild("BAD", hD);
+        //    TreeNode<MvcMovie.Models.DataSet> i = d.AddChild("GOOD", iD);
+        //    TreeNode<MvcMovie.Models.DataSet> j = d.AddChild("UNKNOWN", jD);
+        //    //Level 3 construction
+        //    MvcMovie.Models.DataSet kD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "HIGH"));
+        //    MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
+        //    TreeNode<MvcMovie.Models.DataSet> k = g.AddChild("HIGH", kD);
+        //    TreeNode<MvcMovie.Models.DataSet> l = g.AddChild("LOW", lD);
+        //    //Assertions
+        //    Assert.AreEqual(a.children.Count, 3);
+        //    Assert.AreEqual(b.children.Count, 0);
+        //    Assert.AreEqual(c.children.Count, 3);
+        //    Assert.AreEqual(d.children.Count, 3);
+        //    Assert.AreEqual(g.children.Count, 2);
+        //}
 
         [Test]
         public void constructDecisionTree()
         {
-            TreeNode<MvcMovie.Models.DataSet> a = new TreeNode<MvcMovie.Models.DataSet>(ds);
+            DecisionTreeNode a = new DecisionTreeNode(ds);
             
             MvcMovie.Models.DataSet bD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "< R15k"));
             MvcMovie.Models.DataSet cD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "R15k - R35k"));
@@ -153,9 +153,10 @@ namespace AllUnitTests
             MvcMovie.Models.DataSet kD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "HIGH"));
             MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
 
-            a.constructDecisionTree();
-            TreeNode<MvcMovie.Models.DataSet> constructedFNode = a.children["15k - 35k"].children["GOOD"];
-            Assert.AreEqual(constructedFNode.getValue, fD);
+            Console.WriteLine("Decided Node is: " + a.recursivelyConstructDecisionTreeLevels());
+            DecisionTreeNode constructedFNode = a.decisionChildren[1].decisionChildren[1];
+            //DecisionTreeNode constructedFNode = a.decisionChildren["15k - 35k"].decisionChildren["GOOD"];
+            Assert.AreEqual(constructedFNode.ds, fD);
         }
     }
 }
