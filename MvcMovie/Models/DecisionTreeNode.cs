@@ -44,6 +44,12 @@ namespace MvcMovie.Models
             int index = ds.determineNode();
             node = ds.dt.Columns[index].ColumnName;
             branch = ds.distinctValues(ds.dt, index);
+            List<DataSet> dsl = new List<DataSet>();
+            foreach (var d in branch) {
+                decisionChildren.Add(new DecisionTreeNode(new DataSet(ds.filterTable(node, d))));
+                //dsl.Add(ds.filterTable(node, d));
+            }
+           
 
             
 
