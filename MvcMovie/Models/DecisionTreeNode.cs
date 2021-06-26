@@ -12,8 +12,8 @@ namespace MvcMovie.Models
     public class DecisionTreeNode
     {
         public DataSet ds;
-        public List<String> branch;
         public String node;
+        public List<String> branch;
         public List<DecisionTreeNode> decisionChildren = new List<DecisionTreeNode>();
 
         public DecisionTreeNode(DataSet _ds) {
@@ -51,9 +51,9 @@ namespace MvcMovie.Models
             foreach (var d in branch) {
                 decisionChildren.Add(new DecisionTreeNode(new DataSet(ds.filterTable(node, d))));
             }
-            
+            recursivelyConstructDecisionTreeLevels();
 
-            
+
 
             //foreach (var d in branch) {
             //    Console.WriteLine(d);
