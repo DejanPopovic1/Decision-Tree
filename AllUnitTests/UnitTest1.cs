@@ -140,7 +140,6 @@ namespace AllUnitTests
         public void constructDecisionTree()
         {
             DecisionTreeNode a = new DecisionTreeNode(ds);
-            
             MvcMovie.Models.DataSet bD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "< R15k"));
             MvcMovie.Models.DataSet cD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "R15k - R35k"));
             MvcMovie.Models.DataSet dD = new MvcMovie.Models.DataSet(ds.filterTable("Income", "> R35k"));
@@ -154,9 +153,10 @@ namespace AllUnitTests
             MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
 
             //Console.WriteLine("Decided Node is: " + a.recursivelyConstructDecisionTreeLevels());
-            DecisionTreeNode constructedFNode = a.decisionChildren[1].decisionChildren[1];
+            a.recursivelyConstructDecisionTreeLevels();
+            //DecisionTreeNode constructedFNode = a.decisionChildren[1];
             //DecisionTreeNode constructedFNode = a.decisionChildren["15k - 35k"].decisionChildren["GOOD"];
-            Assert.AreEqual(constructedFNode.ds, fD);
+            //Assert.AreEqual(constructedFNode.ds, fD);
         }
     }
 }

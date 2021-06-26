@@ -44,14 +44,19 @@ namespace MvcMovie.Models
             int index = ds.determineNode();
             node = ds.dt.Columns[index].ColumnName;
             branch = ds.distinctValues(ds.dt, index);
+            Console.WriteLine("Num of branches is: " + branch.Count());
             //Refactor this as a function being a part of DataSet
             if ((ds.distinctValues(ds.dt, ds.dt.Columns.Count - 1)).Count == 1) { 
                 return;
             }
             foreach (var d in branch) {
-                decisionChildren.Add(new DecisionTreeNode(new DataSet(ds.filterTable(node, d))));
+                Console.WriteLine("Num of branches is: " + branch.Count());
+                DataSet newDataSet = new DataSet(ds.filterTable(node, d));
+                DecisionTreeNode newChildNode = new DecisionTreeNode(newDataSet);
+                decisionChildren.Add(newChildNode);
+                //recursivelyConstructDecisionTreeLevels();
             }
-            recursivelyConstructDecisionTreeLevels();
+            
 
 
 
