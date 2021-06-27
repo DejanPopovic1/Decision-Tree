@@ -64,25 +64,6 @@ namespace MvcMovie.Models
                 recursivelyConstructDecisionTreeLevels(decisionChildren[i]);
                 i++;
             }
-            
-
-
-
-            //foreach (var d in branch) {
-            //    Console.WriteLine(d);
-            //}
-
-
-            //return node;
-
-            //BranchNodePair bnp;
-            //bnp.branch = "";
-            //bnp.node = cn;
-
-
-
-            //AddDecisionChild()
-            //Console.WriteLine("=x0x0x0x0x===x0x0x0x0x0====x0x0x0x0====");
         }
 
     }

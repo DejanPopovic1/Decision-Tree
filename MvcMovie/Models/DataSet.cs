@@ -213,6 +213,10 @@ namespace MvcMovie.Models
 
         public void printDataSet() 
         {
+            if (dt.Rows.Count == 0) {
+                Console.WriteLine("Empty Table");
+                return;
+            }
             foreach (DataRow dr in dt.Rows)
             {
                 foreach (var item in dr.ItemArray)
