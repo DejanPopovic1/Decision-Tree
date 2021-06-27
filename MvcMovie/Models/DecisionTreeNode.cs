@@ -56,7 +56,7 @@ namespace MvcMovie.Models
                 DataSet newDataSet = new DataSet(dtn.ds.filterTable(node, d));
                 DecisionTreeNode newChildNode = new DecisionTreeNode(newDataSet);
                 dtn.decisionChildren.Add(newChildNode);
-                recursivelyConstructDecisionTreeLevels(decisionChildren[i]);
+                recursivelyConstructDecisionTreeLevels(dtn.decisionChildren[i]);
                 i++;
             }
             
