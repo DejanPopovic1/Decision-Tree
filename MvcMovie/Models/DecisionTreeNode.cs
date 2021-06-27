@@ -43,19 +43,18 @@ namespace MvcMovie.Models
         //Use Traverse() and delegates to simplify this
         public void recursivelyConstructDecisionTreeLevels(DecisionTreeNode dtn)
         {
+            //Start: Determine node and branches
             int index = dtn.ds.determineNode();
             node = dtn.ds.dt.Columns[index].ColumnName;
             branches = dtn.ds.distinctValues(dtn.ds.dt, index);
-            //Refactor this as a function being a part of DataSet
+            //End
             if (ds.isSingleDecision())
             {
                 return;
             }
             int i = 0;
             foreach (var b in branches) {
-                //Console.WriteLine("Num of branches is: " + branch.Count());
                 DataSet newDataSet = new DataSet(dtn.ds.filterTable(node, b));
-                newDataSet.printDataSet();
                 DecisionTreeNode newChildNode = new DecisionTreeNode(newDataSet);
                 //AddDecisionChild(branch, node, dtn.ds);
                 decisionChildren.Add(newChildNode);
