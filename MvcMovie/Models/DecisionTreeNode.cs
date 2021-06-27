@@ -13,18 +13,18 @@ namespace MvcMovie.Models
     {
         public DataSet ds;
         public String node;
-        public List<String> branch;
+        public List<String> branches;
         public List<DecisionTreeNode> decisionChildren;// = new List<DecisionTreeNode>();
 
         public DecisionTreeNode(DataSet _ds) {
             decisionChildren = new List<DecisionTreeNode>();
-            branch = new List<String>();
+            branches = new List<String>();
             ds = _ds;
         }
 
-        public void AddDecisionChild(List<String> _branch, String _node, DataSet _ds) {
+        public void AddDecisionChild(List<String> _branches, String _node, DataSet _ds) {
             DecisionTreeNode n = new DecisionTreeNode(_ds);
-            n.branch = _branch;
+            n.branches = _branches;
             n.node = _node;
             decisionChildren.Add(n);
         }
@@ -45,21 +45,20 @@ namespace MvcMovie.Models
         {
             int index = dtn.ds.determineNode();
             node = dtn.ds.dt.Columns[index].ColumnName;
-            branch = dtn.ds.distinctValues(dtn.ds.dt, index);
+            branches = dtn.ds.distinctValues(dtn.ds.dt, index);
             //Refactor this as a function being a part of DataSet
             if (ds.isSingleDecision())
             {
                 return;
             }
             int i = 0;
-            foreach (var d in branch) {
+            foreach (var b in branches) {
                 //Console.WriteLine("Num of branches is: " + branch.Count());
-                DataSet newDataSet = new DataSet(dtn.ds.filterTable(node, d));
+                DataSet newDataSet = new DataSet(dtn.ds.filterTable(node, b));
                 newDataSet.printDataSet();
                 DecisionTreeNode newChildNode = new DecisionTreeNode(newDataSet);
                 //AddDecisionChild(branch, node, dtn.ds);
                 decisionChildren.Add(newChildNode);
-                
                 recursivelyConstructDecisionTreeLevels(decisionChildren[i]);
                 i++;
             }
