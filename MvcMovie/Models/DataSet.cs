@@ -192,7 +192,7 @@ namespace MvcMovie.Models
                     break;
                 }
                 double attEntropyGain = calcAttributeEntropyGain(dt, dt.Columns.IndexOf(dc));
-                Console.WriteLine("Attribute entropy gain: " + attEntropyGain);
+                //Console.WriteLine("Attribute entropy gain: " + attEntropyGain);//Put this back in to find entropy gain
                 if (attEntropyGain > maxEntropyGain) 
                 {
                     maxEntropyGain = attEntropyGain;
@@ -210,5 +210,21 @@ namespace MvcMovie.Models
             double r = (double)specificDecisionCount / totalEntryCount;
             return -r * Math.Log(r, (double)2);
         }
+
+        public void printDataSet() 
+        {
+            foreach (DataRow dr in dt.Rows)
+            {
+                foreach (var item in dr.ItemArray)
+                {
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+        }
+
+
     }
 }

@@ -155,8 +155,10 @@ namespace AllUnitTests
             //Console.WriteLine("Decided Node is: " + a.recursivelyConstructDecisionTreeLevels());
             a.recursivelyConstructDecisionTreeLevels(a);
             //DecisionTreeNode constructedFNode = a.decisionChildren[1];
-            //DecisionTreeNode constructedFNode = a.decisionChildren["15k - 35k"].decisionChildren["GOOD"];
-            //Assert.AreEqual(constructedFNode.ds, fD);
+            DecisionTreeNode constructedFNode = a.decisionChildren[1];
+            Console.WriteLine("Test Output 1: " + constructedFNode.node);
+            Console.WriteLine("TEST: " + constructedFNode.node);
+            Assert.AreEqual(constructedFNode.ds, fD);
         }
     }
 }

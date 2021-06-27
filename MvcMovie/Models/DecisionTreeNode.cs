@@ -14,9 +14,10 @@ namespace MvcMovie.Models
         public DataSet ds;
         public String node;
         public List<String> branch;
-        public List<DecisionTreeNode> decisionChildren = new List<DecisionTreeNode>();
+        public List<DecisionTreeNode> decisionChildren;// = new List<DecisionTreeNode>();
 
         public DecisionTreeNode(DataSet _ds) {
+            decisionChildren = new List<DecisionTreeNode>();
             ds = _ds;
         }
 
@@ -41,22 +42,27 @@ namespace MvcMovie.Models
         //Use Traverse() and delegates to simplify this
         public void recursivelyConstructDecisionTreeLevels(DecisionTreeNode dtn)
         {
-            if ((dtn.ds.distinctValues(dtn.ds.dt, dtn.ds.dt.Columns.Count - 1)).Count < 2)
-            {
-                return;
-            }
+            //ds.printDataSet();
+            //
             int index = dtn.ds.determineNode();
             node = dtn.ds.dt.Columns[index].ColumnName;
             branch = dtn.ds.distinctValues(dtn.ds.dt, index);
             Console.WriteLine("Num of branches is: " + branch.Count());
             //Refactor this as a function being a part of DataSet
+            if ((dtn.ds.distinctValues(dtn.ds.dt, dtn.ds.dt.Columns.Count - 1)).Count < 2)
+            {
+                return;
+            }
             int i = 0;
             foreach (var d in branch) {
-                Console.WriteLine("Num of branches is: " + branch.Count());
+                //Console.WriteLine("Num of branches is: " + branch.Count());
                 DataSet newDataSet = new DataSet(dtn.ds.filterTable(node, d));
+                newDataSet.printDataSet();
                 DecisionTreeNode newChildNode = new DecisionTreeNode(newDataSet);
-                dtn.decisionChildren.Add(newChildNode);
-                recursivelyConstructDecisionTreeLevels(dtn.decisionChildren[i]);
+                //AddDecisionChild(branch, node, dtn.ds);
+                decisionChildren.Add(newChildNode);
+                
+                recursivelyConstructDecisionTreeLevels(decisionChildren[i]);
                 i++;
             }
             
