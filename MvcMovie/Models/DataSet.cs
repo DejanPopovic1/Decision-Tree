@@ -222,9 +222,14 @@ namespace MvcMovie.Models
                 Console.WriteLine();
             }
             Console.WriteLine();
-
         }
 
-
+        public bool isSingleDecision() 
+        {
+            if (distinctValues(dt, dt.Columns.Count - 1).Count == 1) {
+                return true; 
+            }
+            return false;
+        }
     }
 }

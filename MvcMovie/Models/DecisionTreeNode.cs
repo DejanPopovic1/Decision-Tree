@@ -18,6 +18,7 @@ namespace MvcMovie.Models
 
         public DecisionTreeNode(DataSet _ds) {
             decisionChildren = new List<DecisionTreeNode>();
+            branch = new List<String>();
             ds = _ds;
         }
 
@@ -42,14 +43,11 @@ namespace MvcMovie.Models
         //Use Traverse() and delegates to simplify this
         public void recursivelyConstructDecisionTreeLevels(DecisionTreeNode dtn)
         {
-            //ds.printDataSet();
-            //
             int index = dtn.ds.determineNode();
             node = dtn.ds.dt.Columns[index].ColumnName;
             branch = dtn.ds.distinctValues(dtn.ds.dt, index);
-            Console.WriteLine("Num of branches is: " + branch.Count());
             //Refactor this as a function being a part of DataSet
-            if ((dtn.ds.distinctValues(dtn.ds.dt, dtn.ds.dt.Columns.Count - 1)).Count < 2)
+            if (ds.isSingleDecision())
             {
                 return;
             }
