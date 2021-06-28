@@ -57,11 +57,11 @@ namespace MvcMovie.Models
             }
             int i = 0;
             foreach (var b in dtn.branches) {
-                DataSet newDataSet = new DataSet(dtn.ds.filterTable(node, b));
+                DataSet newDataSet = new DataSet(dtn.ds.filterTable(dtn.node, b));
                 DecisionTreeNode newChildNode = new DecisionTreeNode(newDataSet);
                 //AddDecisionChild(branch, node, dtn.ds);
                 dtn.decisionChildren.Add(newChildNode);
-                recursivelyConstructDecisionTreeLevels(dtn.decisionChildren[i]);
+                dtn.recursivelyConstructDecisionTreeLevels(dtn.decisionChildren[i]);
                 i++;
             }
         }
