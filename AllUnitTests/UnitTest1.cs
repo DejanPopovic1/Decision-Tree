@@ -137,6 +137,15 @@ namespace AllUnitTests
         //}
 
         [Test]
+        public void testIsSingleDecision()
+        {
+            DecisionTreeNode a = new DecisionTreeNode(ds);
+            MvcMovie.Models.DataSet d = new MvcMovie.Models.DataSet(a.ds.filterTable("Income", "< R15k"));
+            Console.WriteLine("Single Decision Test: " + d.distinctValues(d.dt, d.dt.Columns.Count - 1).Count);
+            Assert.IsTrue(d.isSingleDecision());
+        }
+
+        [Test]
         public void constructDecisionTree()
         {
             DecisionTreeNode a = new DecisionTreeNode(ds);
