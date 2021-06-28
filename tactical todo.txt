@@ -1,0 +1,1 @@
+Tye table is empty after first filter - found out why

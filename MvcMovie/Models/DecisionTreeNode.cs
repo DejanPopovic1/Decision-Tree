@@ -47,8 +47,8 @@ namespace MvcMovie.Models
             //DecisionTreeNode temp = new DecisionTreeNode(dtn.ds);
             //Start: Determine node and branches
             int index = dtn.ds.determineNode();
-            node = dtn.ds.dt.Columns[index].ColumnName;
-            branches = dtn.ds.distinctValues(dtn.ds.dt, index);
+            dtn.node = dtn.ds.dt.Columns[index].ColumnName;
+            dtn.branches = dtn.ds.distinctValues(dtn.ds.dt, index);
             //End
             //ds = temp.ds;
             if (dtn.ds.isSingleDecision()){
@@ -56,12 +56,12 @@ namespace MvcMovie.Models
                 return;
             }
             int i = 0;
-            foreach (var b in branches) {
+            foreach (var b in dtn.branches) {
                 DataSet newDataSet = new DataSet(dtn.ds.filterTable(node, b));
                 DecisionTreeNode newChildNode = new DecisionTreeNode(newDataSet);
                 //AddDecisionChild(branch, node, dtn.ds);
-                decisionChildren.Add(newChildNode);
-                recursivelyConstructDecisionTreeLevels(decisionChildren[i]);
+                dtn.decisionChildren.Add(newChildNode);
+                recursivelyConstructDecisionTreeLevels(dtn.decisionChildren[i]);
                 i++;
             }
         }
