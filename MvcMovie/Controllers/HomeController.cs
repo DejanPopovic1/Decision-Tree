@@ -26,5 +26,12 @@ namespace MvcMovie.Controllers
 
             return View();
         }
+
+        //Use this to download a CSV version of the input table. Also do the opposite where a CSV table may be uploaded
+        //public FileResult Download()
+        //{
+        //    return File(Url.Content("~/TEST.txt"), "text/plain", "testFile.txt");
+        //}
+
     }
 }

@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\MvcMovie.csproj": {
-                "projectPath": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\MvcMovie.csproj"
+              "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\DecisionTree.csproj": {
+                "projectPath": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\DecisionTree.csproj"
               }
             }
           }
@@ -84,11 +84,11 @@
         }
       }
     },
-    "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\MvcMovie.csproj": {
+    "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\DecisionTree.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\MvcMovie.csproj",
-        "projectName": "MvcMovie",
-        "projectPath": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\MvcMovie.csproj"
+        "projectUniqueName": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\DecisionTree.csproj",
+        "projectName": "DecisionTree",
+        "projectPath": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\DecisionTree.csproj"
       },
       "frameworks": {
         "net472": {}

@@ -15,13 +15,13 @@ namespace MvcMovie
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
+                url: "{controller}/{action}/{id}",//This is a route pattern
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
            routes.MapRoute(
             name: "Hello",
-            url: "{controller}/{action}/{name}/{id}"
+            url: "{controller}/{action}/{name}/{id}"//This is a "route pattern"
            );
 
         }

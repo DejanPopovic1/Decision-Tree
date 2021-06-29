@@ -2740,13 +2740,13 @@
           "lib/netstandard1.1/xunit.execution.dotnet.dll": {}
         }
       },
-      "MvcMovie/1.0.0": {
+      "DecisionTree/1.0.0": {
         "type": "project",
         "compile": {
-          "bin/placeholder/MvcMovie.dll": {}
+          "bin/placeholder/DecisionTree.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MvcMovie.dll": {}
+          "bin/placeholder/DecisionTree.dll": {}
         }
       }
     }
@@ -8627,16 +8627,16 @@
         "xunit.extensibility.execution.nuspec"
       ]
     },
-    "MvcMovie/1.0.0": {
+    "DecisionTree/1.0.0": {
       "type": "project",
-      "path": "../MvcMovie/MvcMovie.csproj",
-      "msbuildProject": "../MvcMovie/MvcMovie.csproj"
+      "path": "../MvcMovie/DecisionTree.csproj",
+      "msbuildProject": "../MvcMovie/DecisionTree.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DecisionTree >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
-      "MvcMovie >= 1.0.0",
       "NUnit >= 3.13.2",
       "NUnit3TestAdapter >= 3.17.0",
       "System.Collections.Immutable >= 5.0.0",
@@ -8670,8 +8670,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\MvcMovie.csproj": {
-              "projectPath": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\MvcMovie.csproj"
+            "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\DecisionTree.csproj": {
+              "projectPath": "C:\\C_C++ Code PORTFOLIO\\DecisionTree\\MvcMovie\\DecisionTree.csproj"
             }
           }
         }

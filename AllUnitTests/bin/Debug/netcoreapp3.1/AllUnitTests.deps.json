@@ -8,8 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "AllUnitTests/1.0.0": {
         "dependencies": {
+          "DecisionTree": "1.0.0",
           "Microsoft.NET.Test.Sdk": "16.5.0",
-          "MvcMovie": "1.0.0",
           "NUnit": "3.13.2",
           "NUnit3TestAdapter": "3.17.0",
           "System.Collections.Immutable": "5.0.0",
@@ -1794,7 +1794,7 @@
           }
         }
       },
-      "MvcMovie/1.0.0": {
+      "DecisionTree/1.0.0": {
         "runtime": {
           "MvcMovie.dll": {}
         }
@@ -2872,7 +2872,7 @@
       "path": "xunit.extensibility.execution/2.2.0",
       "hashPath": "xunit.extensibility.execution.2.2.0.nupkg.sha512"
     },
-    "MvcMovie/1.0.0": {
+    "DecisionTree/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
