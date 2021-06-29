@@ -235,5 +235,30 @@ namespace MvcMovie.Models
             }
             return false;
         }
+
+        public bool isDataSetSame(DataSet ds) {
+            DataTable t = ds.dt;
+            if (dt == null){
+                return false;
+            }
+            if (t == null){
+                return false;
+            }
+            if (dt.Rows.Count != t.Rows.Count){
+                return false;
+            }
+            if (dt.Columns.Count != t.Columns.Count) {
+                return false;
+            }
+            if (dt.Columns.Cast<DataColumn>().Any(dc => !t.Columns.Contains(dc.ColumnName))){
+                return false;
+            }
+            for (int i = 0; i <= dt.Rows.Count - 1; i++) {
+                if (dt.Columns.Cast<DataColumn>().Any(dc1 => dt.Rows[i][dc1.ColumnName].ToString() != t.Rows[i][dc1.ColumnName].ToString())) {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

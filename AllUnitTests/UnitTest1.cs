@@ -160,14 +160,18 @@ namespace AllUnitTests
             MvcMovie.Models.DataSet jD = new MvcMovie.Models.DataSet(dD.filterTable("CreditHistory", "UNKNOWN"));
             MvcMovie.Models.DataSet kD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "HIGH"));
             MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
-
-            //Console.WriteLine("Decided Node is: " + a.recursivelyConstructDecisionTreeLevels());
             a.recursivelyConstructDecisionTreeLevels(a);
-            //DecisionTreeNode constructedFNode = a.decisionChildren[1];
-            DecisionTreeNode constructedFNode = a.decisionChildren[1];
-            Console.WriteLine("Test Output 1: " + constructedFNode.node);
-            Console.WriteLine("TEST: " + constructedFNode.node);
-            Assert.AreEqual(constructedFNode.ds, fD);
+            //DecisionTreeNode constructedFNode = a.decisionChildren[1].decisionChildren[1];
+            //Console.Write("Child 1, 1 is: "); Console.Write("Child Node is: " + a.decisionChildren[1].decisionChildren[1].node + " ");  a.decisionChildren[1].decisionChildren[1].ds.printDataSet();
+            Console.Write("Constructed node b is: "); a.decisionChildren[0].ds.printDataSet();
+            //MvcMovie.Models.DataSet ds_b = new MvcMovie.Models.DataSet(bD);
+            Console.Write("Manual node b is: "); bD.printDataSet();
+
+            Assert.AreEqual(a.decisionChildren[0].ds.dt, bD.dt);
+            //Assert.AreEqual(bD.isDataSetSame(decisionChildren[0].ds);
+            //Assert.AreEqual(constructedFNode.ds.dt, c.dt);
+            //Assert.AreEqual(constructedFNode.ds.dt, d.dt);
+            //Assert.AreEqual(constructedFNode.ds.dt, fD.dt);
         }
     }
 }
