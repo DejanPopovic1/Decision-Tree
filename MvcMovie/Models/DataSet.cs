@@ -39,10 +39,6 @@ namespace MvcMovie.Models
 
         public void CreateDataRow(params string[] arr)
         {
-            //Console.WriteLine("String size is: ");
-            //Console.WriteLine(arr.Length);
-            //Console.WriteLine("Number of columns are: ");
-            //Console.WriteLine(dt.Columns.Count);
             if (arr.Length != dt.Columns.Count) {
                 throw new Exception("Size mismatch between new row arguments and number of actual table arguments");
             }
@@ -51,8 +47,6 @@ namespace MvcMovie.Models
                 dr[i] = arr[i];
             }
             addEntry(dr);
-
-            //return dr;
         }
 
         public DataTable filterTable(String attribute, String attributeValue)
@@ -61,35 +55,10 @@ namespace MvcMovie.Models
             DataView dv = new DataView(dtCpy);
             String var1 = attribute;
             String var2 = attributeValue;
-            //dv.RowFilter = "{var1} = '{var2}'";
             String filterString = String.Format("{0} = '{1}'", var1, var2);
-            //dv.RowFilter = "Income = '< R15k'";
             dv.RowFilter = filterString;
             dtCpy = dv.ToTable();
-            //determineNode();
-
-            //foreach (DataRow dataRow in dt.Rows)
-            //{
-            //    foreach (var item in dataRow.ItemArray)
-            //    {
-            //        Console.Write(item + " ");
-            //    }
-            //    Console.WriteLine();
-            //}
-            
-
-
-
             return dtCpy;//At this point, dt is a new instance and not the filtered version of this classed instance of dt
-        }
-
-        public void createDecicionTreeNode()
-        {
-            int n = determineNode();
-
-
-
-
         }
 
         private Dictionary<string, int> columnOccurances(int columnIndex)
@@ -98,7 +67,6 @@ namespace MvcMovie.Models
             List<string> listOfDistinctItems = distinctValues(dt, columnIndex);
             var itemsAndTheirCount = new Dictionary<String, int>();
             int count = 0;
-            
             foreach (var l in listOfDistinctItems)
             {
                 foreach (DataRow r in dt.Rows)
@@ -158,10 +126,8 @@ namespace MvcMovie.Models
                 {
                     int c = numOfAttributeValueInDecision(dt, attributeindex, distinctAttributeValue, distinctDecision);
                     sumInner += calcEntropyTerm(c, attributeValueOccurances[distinctAttributeValue]);
-                   // Console.WriteLine("Sum inner: " + sumInner + "Input values: " + c + " " + attributeValueOccurances[distinctAttributeValue]);
                 }
                 sumOuter += (attributeValueOccurances[distinctAttributeValue]) * sumInner;
-               // Console.WriteLine(sumOuter);
                 sumInner = 0;
             }
             sumOuter /= entryCount;
@@ -171,7 +137,6 @@ namespace MvcMovie.Models
         public double calcEntropy()
         {
             int entryCount = dt.Rows.Count;
-
             Dictionary<string, int> decisionCounts = columnOccurances(dt.Columns.Count - 1);
             double sum = 0;
             foreach (KeyValuePair<String, int> entry in decisionCounts) 
@@ -192,7 +157,6 @@ namespace MvcMovie.Models
                     break;
                 }
                 double attEntropyGain = calcAttributeEntropyGain(dt, dt.Columns.IndexOf(dc));
-                //Console.WriteLine("Attribute entropy gain: " + attEntropyGain);//Put this back in to find entropy gain
                 if (attEntropyGain > maxEntropyGain) 
                 {
                     maxEntropyGain = attEntropyGain;
