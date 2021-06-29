@@ -161,17 +161,19 @@ namespace AllUnitTests
             MvcMovie.Models.DataSet kD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "HIGH"));
             MvcMovie.Models.DataSet lD = new MvcMovie.Models.DataSet(gD.Copy().filterTable("Debt", "LOW"));
             a.recursivelyConstructDecisionTreeLevels(a);
-            //DecisionTreeNode constructedFNode = a.decisionChildren[1].decisionChildren[1];
-            //Console.Write("Child 1, 1 is: "); Console.Write("Child Node is: " + a.decisionChildren[1].decisionChildren[1].node + " ");  a.decisionChildren[1].decisionChildren[1].ds.printDataSet();
             Console.Write("Constructed node b is: "); a.decisionChildren[0].ds.printDataSet();
-            //MvcMovie.Models.DataSet ds_b = new MvcMovie.Models.DataSet(bD);
             Console.Write("Manual node b is: "); bD.printDataSet();
-
-            Assert.AreEqual(a.decisionChildren[0].ds.dt, bD.dt);
-            //Assert.AreEqual(bD.isDataSetSame(decisionChildren[0].ds);
-            //Assert.AreEqual(constructedFNode.ds.dt, c.dt);
-            //Assert.AreEqual(constructedFNode.ds.dt, d.dt);
-            //Assert.AreEqual(constructedFNode.ds.dt, fD.dt);
+            Assert.IsTrue(a.decisionChildren[0].ds.isDataSetSame(bD));
+            Assert.IsTrue(a.decisionChildren[1].ds.isDataSetSame(cD));
+            Assert.IsTrue(a.decisionChildren[2].ds.isDataSetSame(dD));
+            Assert.IsTrue(a.decisionChildren[1].decisionChildren[0].ds.isDataSetSame(gD));
+            Assert.IsTrue(a.decisionChildren[1].decisionChildren[1].ds.isDataSetSame(fD));
+            Assert.IsTrue(a.decisionChildren[1].decisionChildren[2].ds.isDataSetSame(eD));
+            Assert.IsTrue(a.decisionChildren[2].decisionChildren[0].ds.isDataSetSame(jD));
+            Assert.IsTrue(a.decisionChildren[2].decisionChildren[1].ds.isDataSetSame(hD));
+            Assert.IsTrue(a.decisionChildren[2].decisionChildren[2].ds.isDataSetSame(iD));
+            Assert.IsTrue(a.decisionChildren[1].decisionChildren[0].decisionChildren[0].ds.isDataSetSame(kD));
+            Assert.IsTrue(a.decisionChildren[1].decisionChildren[0].decisionChildren[1].ds.isDataSetSame(lD));
         }
     }
 }
