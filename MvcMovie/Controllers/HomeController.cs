@@ -13,7 +13,7 @@ namespace MvcMovie.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult DecisionTree()
         {
             ViewBag.Message = "Your application description page.";
 
