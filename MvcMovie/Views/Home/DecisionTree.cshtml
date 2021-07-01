@@ -15,18 +15,17 @@ const { placeholder } = require("modernizr");
         //mainTable.parentNode.replaceChild(tbody, mainTable)//x.innerHTML = "New cell";
 
         //Delete Table
+        deleteTable();
+        createTable();
+    }
+
+    function deleteTable() {
         var tableHeaderRowCount = 0;
         var table = document.getElementById('mainTable');
         var rowCount = table.rows.length;
         for (var i = tableHeaderRowCount; i < rowCount; i++) {
             table.deleteRow(tableHeaderRowCount);
         }
-        createTable();
-    }
-
-    function deleteTable() {
-
-
     }
 
     function createTable() {
