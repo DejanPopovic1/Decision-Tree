@@ -7,16 +7,9 @@
 <script>
 const { placeholder } = require("modernizr");
 
-    function myFunction() {
-        //var row = document.getElementsByTagName("tr")[0];
-        //var x = row.insertCell(-1);
-        //var new_tbody = document.createElement('tbody');
-        //populate_with_new_rows(new_tbody);
-        //mainTable.parentNode.replaceChild(tbody, mainTable)//x.innerHTML = "New cell";
-
-        //Delete Table
+    function renewTable(columns, rows) {
         deleteTable();
-        createTable();
+        createTable(columns, rows);
     }
 
     function deleteTable() {
@@ -28,21 +21,20 @@ const { placeholder } = require("modernizr");
         }
     }
 
-    function createTable() {
+    function createTable(columns, rows) {
         var body = document.getElementById("placeholder"),
             tbl = document.createElement('table');
         //tbl.style.width = '100px';
         //tbl.style.border = '1px solid black';
         tbl.border = "1";
-
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < rows; i++) {
             var tr = tbl.insertRow();
-            for (var j = 0; j < 2; j++) {
-                    var td = tr.insertCell();
-                    var input = document.createElement("input");
-                    input.type = "text";
-                    td.appendChild(input);
-                    td.style.border = '1px solid black';
+            for (var j = 0; j < columns; j++) {
+                var td = tr.insertCell();
+                var input = document.createElement("input");
+                input.type = "text";
+                td.appendChild(input);
+                td.style.border = '1px solid black';
             }
         }
         body.appendChild(tbl);
@@ -63,7 +55,7 @@ const { placeholder } = require("modernizr");
 <input type="text" id="rows" value="14">
 
 <div>
-    <button type="button" onclick="myFunction()">Clear and Resize table</button>
+    <button type="button" onclick="renewTable(7, 6)">Clear and Resize table</button>
 </div>
 
 <div id="placeholder">
