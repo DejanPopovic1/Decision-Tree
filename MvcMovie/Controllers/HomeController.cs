@@ -15,7 +15,7 @@ namespace MvcMovie.Controllers
 
         public ActionResult DecisionTree()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "How to manage a decision tree";
 
             return View();
         }
