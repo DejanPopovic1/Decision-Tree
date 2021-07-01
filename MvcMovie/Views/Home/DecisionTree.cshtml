@@ -4,6 +4,47 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
+<script>
+    function myFunction() {
+        //var row = document.getElementsByTagName("tr")[0];
+        //var x = row.insertCell(-1);
+        //var new_tbody = document.createElement('tbody');
+        //populate_with_new_rows(new_tbody);
+        //mainTable.parentNode.replaceChild(tbody, mainTable)//x.innerHTML = "New cell";
+
+        //Delete Table
+
+        var tableHeaderRowCount = 0;
+        var table = document.getElementById('mainTable');
+        var rowCount = table.rows.length;
+        for (var i = tableHeaderRowCount; i < rowCount; i++) {
+            table.deleteRow(tableHeaderRowCount);
+        }
+
+        //document.getElementById("mainTable").deleteRow(0);
+        //document.getElementById("mainTable").deleteRow(1);
+        //document.getElementById("mainTable").deleteRow(2);
+        //document.getElementById("mainTable").deleteRow(3);
+        //document.getElementById("mainTable").deleteRow(4);
+        //document.getElementById("mainTable").deleteRow(5);
+        //document.getElementById("mainTable").deleteRow(6);
+        //document.getElementById("mainTable").deleteRow(7);
+        //document.getElementById("mainTable").deleteRow(8);
+        //document.getElementById("mainTable").deleteRow(9);
+        //document.getElementById("mainTable").deleteRow(10);
+        //document.getElementById("mainTable").deleteRow(11);
+        //document.getElementById("mainTable").deleteRow(12);
+        //document.getElementById("mainTable").deleteRow(13);
+        //document.getElementById("mainTable").deleteRow(14);
+        //document.getElementById("mainTable").deleteRow(15);
+
+        //var tbl = document.querySelector("table");
+        //var row0 = tbl.rows[0];
+        //var cell1 = row0.insertCell(1);//the 1 here is the cell index
+        //cell1.id = "2";
+    }
+</script>
+
 <ol>
     <li>Specify the number of rows and columns in the dataset</li>
     <li>Populate the dataset</li>
@@ -20,7 +61,7 @@
     <button type="button" onclick="myFunction()">Clear and Resize table</button>
 </div>
 
-<table border="1">
+<table border="1" id="mainTable">
     <tr>
         <td><input type="text"></td>
         <td><input type="text"></td>
