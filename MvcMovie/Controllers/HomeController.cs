@@ -22,12 +22,12 @@ namespace MvcMovie.Controllers
         }
 
         [HttpPost]
-        public ActionResult DecisionTree(DataSet ds)
+        public void DecisionTree(ViewInput vi)
         {
             System.Environment.Exit(-1);
-            ViewBag.Message = "How to manage a decision tree";
+            //ViewBag.Message = "How to manage a decision tree";
 
-            return View();
+            //return View();
         }
 
         public ActionResult Contact()

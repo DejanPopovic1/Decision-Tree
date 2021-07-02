@@ -161,6 +161,7 @@
       <DependentUpon>202104301716401_DataAnnotations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ViewInput.cs" />
     <Compile Include="Models\DecisionTreeNode.cs" />
     <Compile Include="Models\TreeNode.cs" />
     <Compile Include="Models\DataSet.cs" />

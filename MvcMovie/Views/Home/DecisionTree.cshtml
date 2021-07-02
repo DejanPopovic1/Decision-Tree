@@ -1,4 +1,4 @@
-﻿@model MvcMovie.Models.DataSet
+﻿@model MvcMovie.Models.ViewInput
 
 @{
     ViewBag.Title = "Manage Decision Tree";
@@ -158,29 +158,33 @@
     <li>Create a new data entry and click calculate outcome</li>
 </ol>
 
-<label for="fname">Columns:</label>
-<input type="text" id="columns" value="3">
-<label for="lname">Rows:</label>
-<input type="text" id="rows" value="3">
-
-<div>
-    <p><button type="button" onclick="renewTable()">Clear and Resize table</button></p>
-</div>
-
-<div>
-    <p><button type="button" onclick="createExampleTable()">Example dataset</button></p>
-</div>
-
-<div id="placeholder">
-
-</div>
-
 @using (Html.BeginForm("DecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod)
 {
+
+    <label for="fname">Columns:</label>
+    @*<input type="text" id="columns" value="3">*@
+    @Html.TextBoxFor(ms => ms.columns, new { @placeholder = "3" })
+    <label for="lname">Rows:</label>
+    @Html.TextBoxFor(ms => ms.rows, new { @placeholder = "3" })
+
+    <div>
+        <p><button type="button" onclick="renewTable()">Clear and Resize table</button></p>
+    </div>
+
+    <div>
+        <p><button type="button" onclick="createExampleTable()">Example dataset</button></p>
+    </div>
+
+    <div id="placeholder">
+
+    </div>
+
+
 
     <table id="mainTable">
         <tr>
             <td><input type="text"></td>
+            @*@Html.TextBoxFor(m => m.dt.NewRow(), new { @class = "form-control", @placeholder = "ID" })*@
             <td><input type="text"></td>
             <td><input type="text"></td>
             <td><input type="text"></td>
