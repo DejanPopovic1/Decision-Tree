@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
@@ -15,6 +16,15 @@ namespace MvcMovie.Controllers
 
         public ActionResult DecisionTree()
         {
+            ViewBag.Message = "How to manage a decision tree";
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DecisionTree(DataSet ds)
+        {
+            System.Environment.Exit(-1);
             ViewBag.Message = "How to manage a decision tree";
 
             return View();
