@@ -23,12 +23,13 @@
         for (var i = tableHeaderRowCount; i < rowCount; i++) {
             table.deleteRow(tableHeaderRowCount);
         }
-        //tableHeaderRowCount++;
+        var elem = document.getElementById("mainTable");
+        elem.parentNode.removeChild(elem);
     }
 
     function createTable(columns, rows) {
-        var body = document.getElementById("placeholder"),
-            tbl = document.createElement('table');
+        var body = document.getElementById("placeholder");
+        tbl = document.createElement('table');
         tbl.id = 'mainTable';
         //tbl.setAttribute("id=mainTable");
         //tbl.id = "mainTable";
@@ -42,7 +43,7 @@
                 var input = document.createElement("input");
                 input.type = "text";
                 td.appendChild(input);
-                td.style.border = '1px solid black';
+                //td.style.border = '1px solid black';
             }
         }
         body.appendChild(tbl);
@@ -71,7 +72,7 @@
 </div>
 
 
-<table border="1" id="mainTable">
+<table id="mainTable">
     <tr>
         <td><input type="text"></td>
         <td><input type="text"></td>
