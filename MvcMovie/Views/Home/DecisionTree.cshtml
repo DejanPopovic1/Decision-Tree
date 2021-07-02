@@ -9,6 +9,104 @@
 <script>
     const { placeholder } = require("modernizr");
 
+    function createExampleTable() {
+        //alert(document.getElementById("mainTable").innerHTML);
+        deleteTable();
+        createTable(5, 15);
+        var table = document.getElementById("mainTable");
+        //var a = '<input type="text" name="Fname">';
+        //table.rows[0].cells[0].innerHTML = "test";
+        table.rows[0].cells[0].childNodes[0].value = "Credit History";
+        table.rows[0].cells[1].childNodes[0].value = "Debt";
+        table.rows[0].cells[2].childNodes[0].value = "Collateral";
+        table.rows[0].cells[3].childNodes[0].value = "Income";
+        table.rows[0].cells[4].childNodes[0].value = "Risk"
+            ;
+        table.rows[1].cells[0].childNodes[0].value = "BAD";
+        table.rows[1].cells[1].childNodes[0].value = "HIGH";
+        table.rows[1].cells[2].childNodes[0].value = "NO";
+        table.rows[1].cells[3].childNodes[0].value = "< R15k";
+        table.rows[1].cells[4].childNodes[0].value = "HIGH";
+
+        table.rows[2].cells[0].childNodes[0].value = "UNKNOWN";
+        table.rows[2].cells[1].childNodes[0].value = "HIGH";
+        table.rows[2].cells[2].childNodes[0].value = "NO";
+        table.rows[2].cells[3].childNodes[0].value = "R15k - R35k";
+        table.rows[2].cells[4].childNodes[0].value = "HIGH";
+
+        table.rows[3].cells[0].childNodes[0].value = "UNKNOWN";
+        table.rows[3].cells[1].childNodes[0].value = "LOW";
+        table.rows[3].cells[2].childNodes[0].value = "NO";
+        table.rows[3].cells[3].childNodes[0].value = "R15k - R35k";
+        table.rows[3].cells[4].childNodes[0].value = "MEDIUM";
+
+        table.rows[4].cells[0].childNodes[0].value = "UNKNOWN";
+        table.rows[4].cells[1].childNodes[0].value = "LOW";
+        table.rows[4].cells[2].childNodes[0].value = "NO";
+        table.rows[4].cells[3].childNodes[0].value = "< R15k";
+        table.rows[4].cells[4].childNodes[0].value = "HIGH";
+
+        table.rows[5].cells[0].childNodes[0].value = "UNKNOWN";
+        table.rows[5].cells[1].childNodes[0].value = "LOW";
+        table.rows[5].cells[2].childNodes[0].value = "NO";
+        table.rows[5].cells[3].childNodes[0].value = "> R35k";
+        table.rows[5].cells[4].childNodes[0].value = "LOW";
+
+        table.rows[6].cells[0].childNodes[0].value = "UNKNOWN";
+        table.rows[6].cells[1].childNodes[0].value = "LOW";
+        table.rows[6].cells[2].childNodes[0].value = "YES";
+        table.rows[6].cells[3].childNodes[0].value = "> R35k";
+        table.rows[6].cells[4].childNodes[0].value = "LOW";
+
+        table.rows[7].cells[0].childNodes[0].value = "BAD";
+        table.rows[7].cells[1].childNodes[0].value = "LOW";
+        table.rows[7].cells[2].childNodes[0].value = "NO";
+        table.rows[7].cells[3].childNodes[0].value = "< R15k";
+        table.rows[7].cells[4].childNodes[0].value = "HIGH";
+
+        table.rows[8].cells[0].childNodes[0].value = "BAD";
+        table.rows[8].cells[1].childNodes[0].value = "LOW";
+        table.rows[8].cells[2].childNodes[0].value = "YES";
+        table.rows[8].cells[3].childNodes[0].value = "> R35k";
+        table.rows[8].cells[4].childNodes[0].value = "MEDIUM";
+
+        table.rows[9].cells[0].childNodes[0].value = "GOOD";
+        table.rows[9].cells[1].childNodes[0].value = "LOW";
+        table.rows[9].cells[2].childNodes[0].value = "NO";
+        table.rows[9].cells[3].childNodes[0].value = "> R35k";
+        table.rows[9].cells[4].childNodes[0].value = "LOW";
+
+        table.rows[10].cells[0].childNodes[0].value = "GOOD";
+        table.rows[10].cells[1].childNodes[0].value = "HIGH";
+        table.rows[10].cells[2].childNodes[0].value = "YES";
+        table.rows[10].cells[3].childNodes[0].value = "> R35k";
+        table.rows[10].cells[4].childNodes[0].value = "LOW";
+
+        table.rows[11].cells[0].childNodes[0].value = "GOOD";
+        table.rows[11].cells[1].childNodes[0].value = "HIGH";
+        table.rows[11].cells[2].childNodes[0].value = "NO";
+        table.rows[11].cells[3].childNodes[0].value = "< R15k";
+        table.rows[11].cells[4].childNodes[0].value = "HIGH";
+
+        table.rows[12].cells[0].childNodes[0].value = "GOOD";
+        table.rows[12].cells[1].childNodes[0].value = "HIGH";
+        table.rows[12].cells[2].childNodes[0].value = "NO";
+        table.rows[12].cells[3].childNodes[0].value = "R15k - R35k";
+        table.rows[12].cells[4].childNodes[0].value = "MEDIUM";
+
+        table.rows[13].cells[0].childNodes[0].value = "GOOD";
+        table.rows[13].cells[1].childNodes[0].value = "HIGH";
+        table.rows[13].cells[2].childNodes[0].value = "NO";
+        table.rows[13].cells[3].childNodes[0].value = "> R35k";
+        table.rows[13].cells[4].childNodes[0].value = "LOW";
+
+        table.rows[14].cells[0].childNodes[0].value = "BAD";
+        table.rows[14].cells[1].childNodes[0].value = "HIGH";
+        table.rows[14].cells[2].childNodes[0].value = "NO";
+        table.rows[14].cells[3].childNodes[0].value = "R15k - R35k";
+        table.rows[14].cells[4].childNodes[0].value = "HIGH";
+    }
+
     function renewTable() {
         columns = document.getElementById("columns").value;
         rows = document.getElementById("rows").value;
@@ -64,7 +162,11 @@
 <input type="text" id="rows" value="3">
 
 <div>
-    <button type="button" onclick="renewTable()">Clear and Resize table</button>
+    <p><button type="button" onclick="renewTable()">Clear and Resize table</button></p>
+</div>
+
+<div>
+    <p><button type="button" onclick="createExampleTable()">Example dataset</button></P>
 </div>
 
 <div id="placeholder">
