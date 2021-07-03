@@ -6,8 +6,6 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-//var tableHeaderRowCount = 0;
-
 <script>
     const { placeholder } = require("modernizr");
 
@@ -22,8 +20,8 @@
         table.rows[0].cells[1].childNodes[0].value = "Debt";
         table.rows[0].cells[2].childNodes[0].value = "Collateral";
         table.rows[0].cells[3].childNodes[0].value = "Income";
-        table.rows[0].cells[4].childNodes[0].value = "Risk"
-            ;
+        table.rows[0].cells[4].childNodes[0].value = "Risk";
+
         table.rows[1].cells[0].childNodes[0].value = "BAD";
         table.rows[1].cells[1].childNodes[0].value = "HIGH";
         table.rows[1].cells[2].childNodes[0].value = "NO";
@@ -152,7 +150,7 @@
 </script>
 
 <ol>
-    <li>Specify the number of rows and columns in the dataset</li>
+    <li>Specify the number of rows and columns in the dataset (maximum rows = 100; maximum columns = 10)</li>
     <li>Populate the dataset</li>
     <li>Click create decision tree to build the decision tree</li>
     <li>Create a new data entry and click calculate outcome</li>
@@ -162,10 +160,9 @@
 {
 
     <label for="fname">Columns:</label>
-    @*<input type="text" id="columns" value="3">*@
-    @Html.TextBoxFor(ms => ms.columns, new { @placeholder = "3" })
+    @Html.TextBoxFor(m => m.columns)
     <label for="lname">Rows:</label>
-    @Html.TextBoxFor(ms => ms.rows, new { @placeholder = "3" })
+    @Html.TextBoxFor(m => m.rows)
 
     <div>
         <p><button type="button" onclick="renewTable()">Clear and Resize table</button></p>
@@ -183,110 +180,109 @@
 
     <table id="mainTable">
         <tr>
-            <td><input type="text"></td>
-            @*@Html.TextBoxFor(m => m.dt.NewRow(), new { @class = "form-control", @placeholder = "ID" })*@
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[0])</td>
+            <td>@Html.TextBoxFor(m => m.cells[1])</td>
+            <td>@Html.TextBoxFor(m => m.cells[2])</td>
+            <td>@Html.TextBoxFor(m => m.cells[3])</td>
+            <td>@Html.TextBoxFor(m => m.cells[4])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[5])</td>
+            <td>@Html.TextBoxFor(m => m.cells[6])</td>
+            <td>@Html.TextBoxFor(m => m.cells[7])</td>
+            <td>@Html.TextBoxFor(m => m.cells[8])</td>
+            <td>@Html.TextBoxFor(m => m.cells[9])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[10])</td>
+            <td>@Html.TextBoxFor(m => m.cells[11])</td>
+            <td>@Html.TextBoxFor(m => m.cells[12])</td>
+            <td>@Html.TextBoxFor(m => m.cells[13])</td>
+            <td>@Html.TextBoxFor(m => m.cells[14])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[15])</td>
+            <td>@Html.TextBoxFor(m => m.cells[16])</td>
+            <td>@Html.TextBoxFor(m => m.cells[17])</td>
+            <td>@Html.TextBoxFor(m => m.cells[18])</td>
+            <td>@Html.TextBoxFor(m => m.cells[19])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[20])</td>
+            <td>@Html.TextBoxFor(m => m.cells[21])</td>
+            <td>@Html.TextBoxFor(m => m.cells[22])</td>
+            <td>@Html.TextBoxFor(m => m.cells[23])</td>
+            <td>@Html.TextBoxFor(m => m.cells[24])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[25])</td>
+            <td>@Html.TextBoxFor(m => m.cells[26])</td>
+            <td>@Html.TextBoxFor(m => m.cells[27])</td>
+            <td>@Html.TextBoxFor(m => m.cells[28])</td>
+            <td>@Html.TextBoxFor(m => m.cells[29])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[30])</td>
+            <td>@Html.TextBoxFor(m => m.cells[31])</td>
+            <td>@Html.TextBoxFor(m => m.cells[32])</td>
+            <td>@Html.TextBoxFor(m => m.cells[33])</td>
+            <td>@Html.TextBoxFor(m => m.cells[34])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[35])</td>
+            <td>@Html.TextBoxFor(m => m.cells[36])</td>
+            <td>@Html.TextBoxFor(m => m.cells[37])</td>
+            <td>@Html.TextBoxFor(m => m.cells[38])</td>
+            <td>@Html.TextBoxFor(m => m.cells[39])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[40])</td>
+            <td>@Html.TextBoxFor(m => m.cells[41])</td>
+            <td>@Html.TextBoxFor(m => m.cells[42])</td>
+            <td>@Html.TextBoxFor(m => m.cells[43])</td>
+            <td>@Html.TextBoxFor(m => m.cells[44])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[45])</td>
+            <td>@Html.TextBoxFor(m => m.cells[46])</td>
+            <td>@Html.TextBoxFor(m => m.cells[47])</td>
+            <td>@Html.TextBoxFor(m => m.cells[48])</td>
+            <td>@Html.TextBoxFor(m => m.cells[49])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[50])</td>
+            <td>@Html.TextBoxFor(m => m.cells[51])</td>
+            <td>@Html.TextBoxFor(m => m.cells[52])</td>
+            <td>@Html.TextBoxFor(m => m.cells[53])</td>
+            <td>@Html.TextBoxFor(m => m.cells[54])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[55])</td>
+            <td>@Html.TextBoxFor(m => m.cells[56])</td>
+            <td>@Html.TextBoxFor(m => m.cells[57])</td>
+            <td>@Html.TextBoxFor(m => m.cells[58])</td>
+            <td>@Html.TextBoxFor(m => m.cells[59])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[60])</td>
+            <td>@Html.TextBoxFor(m => m.cells[61])</td>
+            <td>@Html.TextBoxFor(m => m.cells[62])</td>
+            <td>@Html.TextBoxFor(m => m.cells[63])</td>
+            <td>@Html.TextBoxFor(m => m.cells[64])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[65])</td>
+            <td>@Html.TextBoxFor(m => m.cells[66])</td>
+            <td>@Html.TextBoxFor(m => m.cells[67])</td>
+            <td>@Html.TextBoxFor(m => m.cells[68])</td>
+            <td>@Html.TextBoxFor(m => m.cells[69])</td>
         </tr>
         <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td>@Html.TextBoxFor(m => m.cells[70])</td>
+            <td>@Html.TextBoxFor(m => m.cells[71])</td>
+            <td>@Html.TextBoxFor(m => m.cells[72])</td>
+            <td>@Html.TextBoxFor(m => m.cells[73])</td>
+            <td>@Html.TextBoxFor(m => m.cells[74])</td>
         </tr>
     </table>
 
