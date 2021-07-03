@@ -17,17 +17,27 @@ namespace MvcMovie.Controllers
         public ActionResult DecisionTree()
         {
             ViewBag.Message = "How to manage a decision tree";
-            ViewInput vi = new ViewInput() { rows= 3, columns = 3};
+            ViewInput vi = new ViewInput();
+            List<String> l1 = new List<String>();
+            List<String> l2 = new List<String>();
+            l1.Add("Item1");
+            l1.Add("Item2");
+            l1.Add("Item3");
+            l2.Add("Item4");
+            l2.Add("Item5");
+            l2.Add("Item6");
+            vi.cells.Add(l1);
+            vi.cells.Add(l2);
             return View(vi);
         }
 
         [HttpPost]
         public ActionResult DecisionTree(ViewInput vi)
         {
-            if (vi.rows == 3)
-            {
-                System.Environment.Exit(vi.rows);
-            }
+            //if (vi.rows == 3)
+            //{
+            //    System.Environment.Exit(vi.rows);
+            //}
             //ViewBag.Message = "How to manage a decision tree";
 
             return View();

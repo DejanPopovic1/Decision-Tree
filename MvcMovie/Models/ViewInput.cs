@@ -9,12 +9,16 @@ namespace MvcMovie.Models
     {
         public int rows { get; set; }
         public int columns { get; set; }
-        public List<String> cells;
+        public List<List<String>> cells;
 
         public ViewInput()
         {
-            cells = new List<String>();
-            ListExtras.Resize(cells, 10000, "");
+            cells = new List<List<String>>();
+            //ListExtras.Resize(cells, 10000, "");
         }
+
+        //public void addCells(String s) {
+        //    cells.Add(s);
+        //}
     }
 }

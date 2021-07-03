@@ -129,16 +129,13 @@
         var body = document.getElementById("placeholder");
         tbl = document.createElement('table');
         tbl.id = 'mainTable';
-        //tbl.setAttribute("id=mainTable");
-        //tbl.id = "mainTable";
-        //tbl.style.width = '100px';
-        //tbl.style.border = '1px solid black';
-        //tbl.border = "1";
         for (var i = 0; i < rows; i++) {
             var tr = tbl.insertRow();
             for (var j = 0; j < columns; j++) {
                 var td = tr.insertCell();
                 var input = document.createElement("input");
+                //var index = i * j;
+                //var input = document.createElement(    @*@Html.TextBoxFor(m => m.cells[0])*@    );
                 input.type = "text";
                 td.appendChild(input);
                 //td.style.border = '1px solid black';
@@ -156,7 +153,7 @@
     <li>Create a new data entry and click calculate outcome</li>
 </ol>
 
-@using (Html.BeginForm("DecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod)
+@using (Html.BeginForm("DecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
 {
 
     <label for="fname">Columns:</label>
@@ -165,9 +162,9 @@
     @Html.TextBoxFor(m => m.rows)
 
     <div>
-        <p><button type="button" onclick="renewTable()">Clear and Resize table</button></p>
+        <p><button type="submit" onclick="renewTable()">Clear and Resize table</button></p>
     </div>
-
+}
     <div>
         <p><button type="button" onclick="createExampleTable()">Example dataset</button></p>
     </div>
@@ -177,117 +174,145 @@
     </div>
 
 
+    @using (Html.BeginForm("DecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
+    {
 
-    <table id="mainTable">
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[0])</td>
-            <td>@Html.TextBoxFor(m => m.cells[1])</td>
-            <td>@Html.TextBoxFor(m => m.cells[2])</td>
-            <td>@Html.TextBoxFor(m => m.cells[3])</td>
-            <td>@Html.TextBoxFor(m => m.cells[4])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[5])</td>
-            <td>@Html.TextBoxFor(m => m.cells[6])</td>
-            <td>@Html.TextBoxFor(m => m.cells[7])</td>
-            <td>@Html.TextBoxFor(m => m.cells[8])</td>
-            <td>@Html.TextBoxFor(m => m.cells[9])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[10])</td>
-            <td>@Html.TextBoxFor(m => m.cells[11])</td>
-            <td>@Html.TextBoxFor(m => m.cells[12])</td>
-            <td>@Html.TextBoxFor(m => m.cells[13])</td>
-            <td>@Html.TextBoxFor(m => m.cells[14])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[15])</td>
-            <td>@Html.TextBoxFor(m => m.cells[16])</td>
-            <td>@Html.TextBoxFor(m => m.cells[17])</td>
-            <td>@Html.TextBoxFor(m => m.cells[18])</td>
-            <td>@Html.TextBoxFor(m => m.cells[19])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[20])</td>
-            <td>@Html.TextBoxFor(m => m.cells[21])</td>
-            <td>@Html.TextBoxFor(m => m.cells[22])</td>
-            <td>@Html.TextBoxFor(m => m.cells[23])</td>
-            <td>@Html.TextBoxFor(m => m.cells[24])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[25])</td>
-            <td>@Html.TextBoxFor(m => m.cells[26])</td>
-            <td>@Html.TextBoxFor(m => m.cells[27])</td>
-            <td>@Html.TextBoxFor(m => m.cells[28])</td>
-            <td>@Html.TextBoxFor(m => m.cells[29])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[30])</td>
-            <td>@Html.TextBoxFor(m => m.cells[31])</td>
-            <td>@Html.TextBoxFor(m => m.cells[32])</td>
-            <td>@Html.TextBoxFor(m => m.cells[33])</td>
-            <td>@Html.TextBoxFor(m => m.cells[34])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[35])</td>
-            <td>@Html.TextBoxFor(m => m.cells[36])</td>
-            <td>@Html.TextBoxFor(m => m.cells[37])</td>
-            <td>@Html.TextBoxFor(m => m.cells[38])</td>
-            <td>@Html.TextBoxFor(m => m.cells[39])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[40])</td>
-            <td>@Html.TextBoxFor(m => m.cells[41])</td>
-            <td>@Html.TextBoxFor(m => m.cells[42])</td>
-            <td>@Html.TextBoxFor(m => m.cells[43])</td>
-            <td>@Html.TextBoxFor(m => m.cells[44])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[45])</td>
-            <td>@Html.TextBoxFor(m => m.cells[46])</td>
-            <td>@Html.TextBoxFor(m => m.cells[47])</td>
-            <td>@Html.TextBoxFor(m => m.cells[48])</td>
-            <td>@Html.TextBoxFor(m => m.cells[49])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[50])</td>
-            <td>@Html.TextBoxFor(m => m.cells[51])</td>
-            <td>@Html.TextBoxFor(m => m.cells[52])</td>
-            <td>@Html.TextBoxFor(m => m.cells[53])</td>
-            <td>@Html.TextBoxFor(m => m.cells[54])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[55])</td>
-            <td>@Html.TextBoxFor(m => m.cells[56])</td>
-            <td>@Html.TextBoxFor(m => m.cells[57])</td>
-            <td>@Html.TextBoxFor(m => m.cells[58])</td>
-            <td>@Html.TextBoxFor(m => m.cells[59])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[60])</td>
-            <td>@Html.TextBoxFor(m => m.cells[61])</td>
-            <td>@Html.TextBoxFor(m => m.cells[62])</td>
-            <td>@Html.TextBoxFor(m => m.cells[63])</td>
-            <td>@Html.TextBoxFor(m => m.cells[64])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[65])</td>
-            <td>@Html.TextBoxFor(m => m.cells[66])</td>
-            <td>@Html.TextBoxFor(m => m.cells[67])</td>
-            <td>@Html.TextBoxFor(m => m.cells[68])</td>
-            <td>@Html.TextBoxFor(m => m.cells[69])</td>
-        </tr>
-        <tr>
-            <td>@Html.TextBoxFor(m => m.cells[70])</td>
-            <td>@Html.TextBoxFor(m => m.cells[71])</td>
-            <td>@Html.TextBoxFor(m => m.cells[72])</td>
-            <td>@Html.TextBoxFor(m => m.cells[73])</td>
-            <td>@Html.TextBoxFor(m => m.cells[74])</td>
-        </tr>
-    </table>
 
-    <div>
-        <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
-    </div>
 
-}
+<table id="mainTable">
+    @*@foreach (var r in Model.cells){*@
+    
+    
+    @for (var i = 0; i < Model.cells.Count(); i++) {
+    <tr>
+        @*@foreach (var c in r) {
+            <td>@Html.TextBoxFor(c.va)</td>
+        }*@
+
+        @for (var j = 0; j < Model.cells[i].Count(); j++)
+        {
+        <td>
+            @Html.TextBoxFor(m => m.cells[i][j])
+        </td>
+                    }
+
+
+                    @*<td>@Html.TextBoxFor(m => m.cells[0])</td>
+                <td>@Html.TextBoxFor(m => m.cells[0])</td>
+                <td>@Html.TextBoxFor(m => m.cells[0])</td>
+                <td>@Html.TextBoxFor(m => m.cells[0])</td>
+                <td>@Html.TextBoxFor(m => m.cells[0])</td>*@
+</tr>
+    }
+    @*<tr>
+        <td>@Html.TextBoxFor(m => m.cells[0])</td>
+        <td>@Html.TextBoxFor(m => m.cells[1])</td>
+        <td>@Html.TextBoxFor(m => m.cells[2])</td>
+        <td>@Html.TextBoxFor(m => m.cells[3])</td>
+        <td>@Html.TextBoxFor(m => m.cells[4])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[5])</td>
+        <td>@Html.TextBoxFor(m => m.cells[6])</td>
+        <td>@Html.TextBoxFor(m => m.cells[7])</td>
+        <td>@Html.TextBoxFor(m => m.cells[8])</td>
+        <td>@Html.TextBoxFor(m => m.cells[9])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[10])</td>
+        <td>@Html.TextBoxFor(m => m.cells[11])</td>
+        <td>@Html.TextBoxFor(m => m.cells[12])</td>
+        <td>@Html.TextBoxFor(m => m.cells[13])</td>
+        <td>@Html.TextBoxFor(m => m.cells[14])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[15])</td>
+        <td>@Html.TextBoxFor(m => m.cells[16])</td>
+        <td>@Html.TextBoxFor(m => m.cells[17])</td>
+        <td>@Html.TextBoxFor(m => m.cells[18])</td>
+        <td>@Html.TextBoxFor(m => m.cells[19])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[20])</td>
+        <td>@Html.TextBoxFor(m => m.cells[21])</td>
+        <td>@Html.TextBoxFor(m => m.cells[22])</td>
+        <td>@Html.TextBoxFor(m => m.cells[23])</td>
+        <td>@Html.TextBoxFor(m => m.cells[24])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[25])</td>
+        <td>@Html.TextBoxFor(m => m.cells[26])</td>
+        <td>@Html.TextBoxFor(m => m.cells[27])</td>
+        <td>@Html.TextBoxFor(m => m.cells[28])</td>
+        <td>@Html.TextBoxFor(m => m.cells[29])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[30])</td>
+        <td>@Html.TextBoxFor(m => m.cells[31])</td>
+        <td>@Html.TextBoxFor(m => m.cells[32])</td>
+        <td>@Html.TextBoxFor(m => m.cells[33])</td>
+        <td>@Html.TextBoxFor(m => m.cells[34])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[35])</td>
+        <td>@Html.TextBoxFor(m => m.cells[36])</td>
+        <td>@Html.TextBoxFor(m => m.cells[37])</td>
+        <td>@Html.TextBoxFor(m => m.cells[38])</td>
+        <td>@Html.TextBoxFor(m => m.cells[39])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[40])</td>
+        <td>@Html.TextBoxFor(m => m.cells[41])</td>
+        <td>@Html.TextBoxFor(m => m.cells[42])</td>
+        <td>@Html.TextBoxFor(m => m.cells[43])</td>
+        <td>@Html.TextBoxFor(m => m.cells[44])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[45])</td>
+        <td>@Html.TextBoxFor(m => m.cells[46])</td>
+        <td>@Html.TextBoxFor(m => m.cells[47])</td>
+        <td>@Html.TextBoxFor(m => m.cells[48])</td>
+        <td>@Html.TextBoxFor(m => m.cells[49])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[50])</td>
+        <td>@Html.TextBoxFor(m => m.cells[51])</td>
+        <td>@Html.TextBoxFor(m => m.cells[52])</td>
+        <td>@Html.TextBoxFor(m => m.cells[53])</td>
+        <td>@Html.TextBoxFor(m => m.cells[54])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[55])</td>
+        <td>@Html.TextBoxFor(m => m.cells[56])</td>
+        <td>@Html.TextBoxFor(m => m.cells[57])</td>
+        <td>@Html.TextBoxFor(m => m.cells[58])</td>
+        <td>@Html.TextBoxFor(m => m.cells[59])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[60])</td>
+        <td>@Html.TextBoxFor(m => m.cells[61])</td>
+        <td>@Html.TextBoxFor(m => m.cells[62])</td>
+        <td>@Html.TextBoxFor(m => m.cells[63])</td>
+        <td>@Html.TextBoxFor(m => m.cells[64])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[65])</td>
+        <td>@Html.TextBoxFor(m => m.cells[66])</td>
+        <td>@Html.TextBoxFor(m => m.cells[67])</td>
+        <td>@Html.TextBoxFor(m => m.cells[68])</td>
+        <td>@Html.TextBoxFor(m => m.cells[69])</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(m => m.cells[70])</td>
+        <td>@Html.TextBoxFor(m => m.cells[71])</td>
+        <td>@Html.TextBoxFor(m => m.cells[72])</td>
+        <td>@Html.TextBoxFor(m => m.cells[73])</td>
+        <td>@Html.TextBoxFor(m => m.cells[74])</td>
+    </tr>*@
+</table>
+
+        <div>
+            <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
+        </div>
+
+    }
