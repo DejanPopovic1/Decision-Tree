@@ -50,6 +50,12 @@ namespace MvcMovie.Controllers
             return View("~/Views/Home/DecisionTree.cshtml", vi);
         }
 
+        [HttpPost]
+        public String GenerateDecisionTree( )
+        {
+            return "Heya";
+        }
+
         public ActionResult DecisionTree(String r, String c)
         {
             ViewBag.Message = "How to manage a decision tree";
