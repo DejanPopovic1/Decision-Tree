@@ -18,8 +18,11 @@ namespace MvcMovie.Controllers
         {
             ViewBag.Message = "How to manage a decision tree";
             ViewInput vi = new ViewInput();
+
             if (!String.IsNullOrEmpty(r) && !String.IsNullOrEmpty(c))
             {
+                vi.columns = Int32.Parse(c);
+                vi.rows = Int32.Parse(r);
                 vi.createEmptyInput(Int16.Parse(r), Int16.Parse(c));
             }
             var test =  vi.cells.Count().ToString();
@@ -29,8 +32,10 @@ namespace MvcMovie.Controllers
         [HttpPost]
         public ActionResult Sizing(ViewInput vi)
         {
-            vi.createEmptyInput(vi.rows, vi.columns);
-            return RedirectToAction("DecisionTree", new { rows = vi.rows.ToString(), columns = vi.columns.ToString()});//  ; return RedirectToAction("Index", new { id = idString });
+            //vi.createEmptyInput(vi.rows, vi.columns);
+            var rs = vi.rows.ToString();
+            var cs = vi.columns.ToString();
+            return RedirectToAction("DecisionTree", new { r = rs, c = cs});//These variable names must match the names of parameters in DecisionTree
         }
 
         [HttpPost]
