@@ -14,6 +14,21 @@ namespace MvcMovie.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ExampleDataSet() {
+            ViewInput vi = new ViewInput();
+            List<String> l1 = new List<String>();
+            l1.Add("BAD");
+            l1.Add("HIGH");
+            l1.Add("NO");
+            l1.Add("< R15k");
+            l1.Add("HIGH");
+            //List<List<String>> m = new List<List<String>>();
+            vi.cells.Add(l1);
+            //return View("../Views/Home/DecisionTree.cshtml" , m);
+            return View("~/Views/Home/DecisionTree.cshtml", vi);
+        }
+
         public ActionResult DecisionTree(String r, String c)
         {
             ViewBag.Message = "How to manage a decision tree";

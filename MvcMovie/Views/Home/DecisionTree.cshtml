@@ -163,35 +163,41 @@
         <p><button type="submit">Clear and Resize table</button></p>
     </div>
 }
+
+@using (Html.BeginForm("ExampleDataSet", "Home", FormMethod.Post))
+{
     <div>
-        <p><button type="button" onclick="createExampleTable()">Example dataset</button></p>
+        @*<p><button type="button" onclick="createExampleTable()">Example dataset</button></p>*@
+        <p><button type="submit">Example dataset</button></p>
+    </div>
+}
+
+
+<div id="placeholder">
+
+</div>
+
+@using (Html.BeginForm("DecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
+{
+
+
+
+    <table id="mainTable">
+        @for (var i = 0; i < Model.cells.Count(); i++)
+        {
+            <tr>
+                @for (var j = 0; j < Model.cells[i].Count(); j++)
+                {
+                    <td>
+                        @Html.TextBoxFor(m => m.cells[i][j])
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+
+    <div>
+        <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
     </div>
 
-    <div id="placeholder">
-
-    </div>
-
-    @using (Html.BeginForm("DecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
-    {
-
-
-
-        <table id="mainTable">
-            @for (var i = 0; i < Model.cells.Count(); i++)
-            {
-                <tr>
-                    @for (var j = 0; j < Model.cells[i].Count(); j++)
-                    {
-                        <td>
-                            @Html.TextBoxFor(m => m.cells[i][j])
-                        </td>
-                    }
-                </tr>
-            }
-        </table>
-
-        <div>
-            <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
-        </div>
-
-    }
+}
