@@ -160,7 +160,7 @@
     <label for="lname">Rows:</label>
     @Html.TextBoxFor(m => m.rows)
     <div>
-        <p><button type="submit" onclick="renewTable()">Clear and Resize table</button></p>
+        <p><button type="submit">Clear and Resize table</button></p>
     </div>
 }
     <div>
@@ -170,7 +170,6 @@
     <div id="placeholder">
 
     </div>
-
 
     @using (Html.BeginForm("DecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
     {

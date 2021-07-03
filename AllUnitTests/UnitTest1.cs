@@ -3,6 +3,7 @@ using MvcMovie.Models;
 using System;
 using System.Reflection;
 using System.Data;
+using System.Linq;
 
 namespace AllUnitTests
 {
@@ -174,6 +175,27 @@ namespace AllUnitTests
             Assert.IsTrue(a.decisionChildren[2].decisionChildren[2].ds.isDataSetSame(iD));
             Assert.IsTrue(a.decisionChildren[1].decisionChildren[0].decisionChildren[0].ds.isDataSetSame(kD));
             Assert.IsTrue(a.decisionChildren[1].decisionChildren[0].decisionChildren[1].ds.isDataSetSame(lD));
+        }
+
+        [Test]
+        public void viewInput()
+        {
+            ViewInput vi = new ViewInput();
+            vi.createEmptyInput(5, 5);
+            Assert.AreEqual(vi.cells.Count(), 5);
+            Assert.AreEqual(vi.cells[0].Count(), 5);
+            Assert.AreEqual(vi.cells[1].Count(), 5);
+            Assert.AreEqual(vi.cells[2].Count(), 5);
+            Assert.AreEqual(vi.cells[3].Count(), 5);
+            Assert.AreEqual(vi.cells[4].Count(), 5);
+
+            Assert.AreEqual(vi.cells[0][0], "");
+            Assert.AreEqual(vi.cells[0][2], "");
+            Assert.AreEqual(vi.cells[1][3], "");
+            Assert.AreEqual(vi.cells[0][0], "");
+            Assert.AreEqual(vi.cells[0][0], "");
+            Assert.AreEqual(vi.cells[4][1], "");
+            Assert.AreEqual(vi.cells[4][0], "");
         }
     }
 }

@@ -14,29 +14,23 @@ namespace MvcMovie.Controllers
             return View();
         }
 
-        public ActionResult DecisionTree()
+        public ActionResult DecisionTree(String r, String c)
         {
             ViewBag.Message = "How to manage a decision tree";
             ViewInput vi = new ViewInput();
-            List<String> l1 = new List<String>();
-            List<String> l2 = new List<String>();
-            l1.Add("Item1");
-            l1.Add("Item2");
-            l1.Add("Item3");
-            l2.Add("Item4");
-            l2.Add("Item5");
-            l2.Add("Item6");
-            //vi.cells.Add(l1);
-            //vi.cells.Add(l2);
+            if (!String.IsNullOrEmpty(r) && !String.IsNullOrEmpty(c))
+            {
+                vi.createEmptyInput(Int16.Parse(r), Int16.Parse(c));
+            }
+            var test =  vi.cells.Count().ToString();
             return View(vi);
         }
 
         [HttpPost]
-        public String Sizing(ViewInput vi)
+        public ActionResult Sizing(ViewInput vi)
         {
             vi.createEmptyInput(vi.rows, vi.columns);
-            String result = vi.cells[0].Count().ToString();
-            return result;
+            return RedirectToAction("DecisionTree", new { rows = vi.rows.ToString(), columns = vi.columns.ToString()});//  ; return RedirectToAction("Index", new { id = idString });
         }
 
         [HttpPost]
