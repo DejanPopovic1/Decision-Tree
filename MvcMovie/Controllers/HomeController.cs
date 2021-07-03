@@ -26,21 +26,37 @@ namespace MvcMovie.Controllers
             l2.Add("Item4");
             l2.Add("Item5");
             l2.Add("Item6");
-            vi.cells.Add(l1);
-            vi.cells.Add(l2);
+            //vi.cells.Add(l1);
+            //vi.cells.Add(l2);
             return View(vi);
         }
 
         [HttpPost]
-        public ActionResult DecisionTree(ViewInput vi)
+        public String Sizing(ViewInput vi)
         {
+            //System.Environment.Exit(vi.cells.Count);
+            vi.add
             //if (vi.rows == 3)
             //{
-            //    System.Environment.Exit(vi.rows);
+            //   System.Environment.Exit(vi.rows);
+            //}
+            //ViewBag.Message = "How to manage a decision tree";
+            String result = vi.columns.ToString();
+            return result;
+        }
+
+        [HttpPost]
+        public String DecisionTree(ViewInput vi)
+        {
+            //System.Environment.Exit(vi.cells.Count);
+
+            //if (vi.rows == 3)
+            //{
+            //   System.Environment.Exit(vi.rows);
             //}
             //ViewBag.Message = "How to manage a decision tree";
 
-            return View();
+            return "Hello there";
         }
 
         public ActionResult Contact()

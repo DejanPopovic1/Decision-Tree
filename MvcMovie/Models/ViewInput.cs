@@ -17,8 +17,17 @@ namespace MvcMovie.Models
             //ListExtras.Resize(cells, 10000, "");
         }
 
-        //public void addCells(String s) {
-        //    cells.Add(s);
-        //}
+        public void createEmptyList(int r, int c) {
+            List<String> line = new List<String>();
+            while (c >= 0) {
+                line.Add("");
+                c--;
+            }
+            while (r >= 0)
+            {
+                List<String> lineCpy = new List<String>(line);
+                r--;
+            }
+        }
     }
 }
