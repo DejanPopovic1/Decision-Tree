@@ -17,15 +17,36 @@ namespace MvcMovie.Controllers
         [HttpPost]
         public ActionResult ExampleDataSet() {
             ViewInput vi = new ViewInput();
-            List<String> l1 = new List<String>();
-            l1.Add("BAD");
-            l1.Add("HIGH");
-            l1.Add("NO");
-            l1.Add("< R15k");
-            l1.Add("HIGH");
-            //List<List<String>> m = new List<List<String>>();
+            List<String> l1 = new List<String> {"Credit history", "Debt", "Collateral", "Income", "Risk"};
+            List<String> l2 = new List<String> {"BAD", "HIGH", "NO", "< R15k", "HIGH"};
+            List<String> l3 = new List<String> {"UNKNOWN", "HIGH", "NO", "R15k - R35k", "HIGH"};
+            List<String> l4 = new List<String> {"UNKNOWN", "LOW", "NO", "R15k - R35k", "MEDIUM"};
+            List<String> l5 = new List<String> {"UNKNOWN", "LOW", "NO", "< R15k", "HIGH"};
+            List<String> l6 = new List<String> {"UNKNOWN", "LOW", "NO", "> R35k", "LOW"};
+            List<String> l7 = new List<String> {"UNKNOWN", "LOW", "YES", "> R35k", "LOW"};
+            List<String> l8 = new List<String> {"BAD", "LOW", "NO", "< R15k", "HIGH"};
+            List<String> l9 = new List<String> {"BAD", "LOW", "YES", "> R35k", "MEDIUM"};
+            List<String> l10 = new List<String> {"GOOD", "LOW", "NO", "> R35k", "LOW"};
+            List<String> l11 = new List<String> {"GOOD", "HIGH", "YES", "> R35k", "LOW"};
+            List<String> l12 = new List<String> {"GOOD", "HIGH", "NO", "< R15k", "HIGH"};
+            List<String> l13 = new List<String> {"GOOD", "HIGH", "NO", "R15k - R35k", "MEDIUM"};
+            List<String> l14 = new List<String> {"GOOD", "HIGH", "NO", "> R35k", "LOW"};
+            List<String> l15 = new List<String> { "BAD", "HIGH", "NO", "R15k - R35k", "HIGH"};
             vi.cells.Add(l1);
-            //return View("../Views/Home/DecisionTree.cshtml" , m);
+            vi.cells.Add(l2);
+            vi.cells.Add(l3);
+            vi.cells.Add(l4);
+            vi.cells.Add(l5);
+            vi.cells.Add(l6);
+            vi.cells.Add(l7);
+            vi.cells.Add(l8);
+            vi.cells.Add(l9);
+            vi.cells.Add(l10);
+            vi.cells.Add(l11);
+            vi.cells.Add(l12);
+            vi.cells.Add(l13);
+            vi.cells.Add(l14);
+            vi.cells.Add(l15);
             return View("~/Views/Home/DecisionTree.cshtml", vi);
         }
 
