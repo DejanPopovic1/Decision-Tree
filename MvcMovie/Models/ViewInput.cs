@@ -17,7 +17,7 @@ namespace MvcMovie.Models
             //ListExtras.Resize(cells, 10000, "");
         }
 
-        public void createEmptyList(int r, int c) {
+        public void createEmptyInput(int r, int c) {
             List<String> line = new List<String>();
             while (c > 0) {
                 line.Add("");

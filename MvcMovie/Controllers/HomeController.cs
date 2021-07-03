@@ -34,14 +34,8 @@ namespace MvcMovie.Controllers
         [HttpPost]
         public String Sizing(ViewInput vi)
         {
-            //System.Environment.Exit(vi.cells.Count);
-            vi.add
-            //if (vi.rows == 3)
-            //{
-            //   System.Environment.Exit(vi.rows);
-            //}
-            //ViewBag.Message = "How to manage a decision tree";
-            String result = vi.columns.ToString();
+            vi.createEmptyInput(vi.rows, vi.columns);
+            String result = vi.cells[0].Count().ToString();
             return result;
         }
 
