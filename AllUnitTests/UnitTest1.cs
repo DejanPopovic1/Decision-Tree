@@ -4,6 +4,7 @@ using System;
 using System.Reflection;
 using System.Data;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace AllUnitTests
 {
@@ -196,6 +197,52 @@ namespace AllUnitTests
             Assert.AreEqual(vi.cells[0][0], "");
             Assert.AreEqual(vi.cells[4][1], "");
             Assert.AreEqual(vi.cells[4][0], "");
+        }
+
+        [Test]
+        public void constructDataSetFromListOfLists()
+        {
+            //Given
+            List<List<String>> listOfLists = new List<List<String>>();
+            List<String> l1 = new List<String> { "Credit history", "Debt", "Collateral", "Income", "Risk" };
+            List<String> l2 = new List<String> { "BAD", "HIGH", "NO", "< R15k", "HIGH" };
+            List<String> l3 = new List<String> { "UNKNOWN", "HIGH", "NO", "R15k - R35k", "HIGH" };
+            List<String> l4 = new List<String> { "UNKNOWN", "LOW", "NO", "R15k - R35k", "MEDIUM" };
+            List<String> l5 = new List<String> { "UNKNOWN", "LOW", "NO", "< R15k", "HIGH" };
+            List<String> l6 = new List<String> { "UNKNOWN", "LOW", "NO", "> R35k", "LOW" };
+            List<String> l7 = new List<String> { "UNKNOWN", "LOW", "YES", "> R35k", "LOW" };
+            List<String> l8 = new List<String> { "BAD", "LOW", "NO", "< R15k", "HIGH" };
+            List<String> l9 = new List<String> { "BAD", "LOW", "YES", "> R35k", "MEDIUM" };
+            List<String> l10 = new List<String> { "GOOD", "LOW", "NO", "> R35k", "LOW" };
+            List<String> l11 = new List<String> { "GOOD", "HIGH", "YES", "> R35k", "LOW" };
+            List<String> l12 = new List<String> { "GOOD", "HIGH", "NO", "< R15k", "HIGH" };
+            List<String> l13 = new List<String> { "GOOD", "HIGH", "NO", "R15k - R35k", "MEDIUM" };
+            List<String> l14 = new List<String> { "GOOD", "HIGH", "NO", "> R35k", "LOW" };
+            List<String> l15 = new List<String> { "BAD", "HIGH", "NO", "R15k - R35k", "HIGH" };
+            listOfLists.Add(l1);
+            listOfLists.Add(l2);
+            listOfLists.Add(l3);
+            listOfLists.Add(l4);
+            listOfLists.Add(l5);
+            listOfLists.Add(l6);
+            listOfLists.Add(l7);
+            listOfLists.Add(l8);
+            listOfLists.Add(l9);
+            listOfLists.Add(l10);
+            listOfLists.Add(l11);
+            listOfLists.Add(l12);
+            listOfLists.Add(l13);
+            listOfLists.Add(l14);
+            listOfLists.Add(l15);
+            //When
+            MvcMovie.Models.DataSet testDS = new MvcMovie.Models.DataSet(listOfLists);
+            //Then
+            Assert.AreEqual(l1[0], testDS.dt.Columns[0].ColumnName);
+            Assert.AreEqual(l1[4], testDS.dt.Columns[4].ColumnName);
+            Assert.AreEqual(listOfLists[0][0], testDS.dt.Rows[0][0]);
+            Assert.AreEqual(listOfLists[0][3], testDS.dt.Rows[0][3]);
+            Assert.AreEqual(listOfLists[2][0], testDS.dt.Rows[2][0]);
+            Assert.AreEqual(listOfLists[4][1], testDS.dt.Rows[4][1]);
         }
     }
 }
