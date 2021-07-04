@@ -21,6 +21,28 @@ namespace MvcMovie.Models
             dt = dtArg;
         }
 
+        public DataSet(List<List<String>> l)
+        {
+            dt = new DataTable();
+            List<String> headingLine = l[0];
+            dt = new DataTable();
+            foreach (String item in headingLine)
+            {
+                dt.Columns.Add(new DataColumn(item, typeof(String)));
+            }
+            l.RemoveAt(0);
+            foreach (List<String> line in l)
+            {
+                DataRow dr = dt.NewRow();
+                int j = 0;
+                foreach (String item in line) {
+                    dr[dt.Columns[j].ColumnName] = item;
+                    j++;
+                }
+                dt.Rows.Add(dr);
+            }
+        }
+
         public DataSet Copy() 
         {
             DataSet ans = new DataSet();
