@@ -53,10 +53,13 @@ namespace MvcMovie.Controllers
         [HttpPost]
         public String GenerateDecisionTree(ViewInput vi)
         {
-            DecisionTreeNode dtn = new DecisionTreeNode(new DataSet());
-            //1: Add to data set a constructor that takes a list of lists
-            //2: Construct a decisiontreenode off the above
-            //3: Call recursivelyConstructDecisionTreeLevels
+            DataSet ds = new DataSet(vi.cells);
+            DecisionTreeNode dtn = new DecisionTreeNode(ds);
+            dtn.recursivelyConstructDecisionTreeLevels(dtn);
+            //1: Add to data set a constructor that takes a list of lists and test this - DONE
+            //2: Construct a decisiontreenode off the above - DONE see first and second line in this function
+            //3: Call recursivelyConstructDecisionTreeLevels - DONE see third line in this function
+
             //4: Upon clicking either 2 gray buttons appropriately add in input line of same size in exactly the same way as the main table was created.
             //4: Move generate decsion tree to below the additiona above and rename to gen dec tree and find result
             //5: Add a simple output textbox below this button
