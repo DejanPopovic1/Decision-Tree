@@ -95,6 +95,15 @@ namespace MvcMovie.Controllers
         }
 
         [HttpPost]
+        public ActionResult ProvideInputConditions(ViewInput vi)
+        {
+            vi.inputConditionsSelected = true;
+            var rs = vi.rows.ToString();
+            var cs = vi.columns.ToString();
+            return RedirectToAction("DecisionTree", new { r = rs, c = cs });//These variable names must match the names of parameters in DecisionTree
+        }
+
+        [HttpPost]
         public String DecisionTree(ViewInput vi)
         {
             //System.Environment.Exit(vi.cells.Count);

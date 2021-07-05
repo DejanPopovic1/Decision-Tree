@@ -14,9 +14,12 @@ namespace MvcMovie.Models
         public List<String> conditions;
         public String result;
 
+        public bool inputConditionsSelected;
+
         public ViewInput()
         {
             cells = new List<List<String>>();
+            inputConditionsSelected = false;
             //ListExtras.Resize(cells, 10000, "");
         }
 

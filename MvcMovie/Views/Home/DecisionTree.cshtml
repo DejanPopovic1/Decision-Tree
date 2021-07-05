@@ -156,12 +156,12 @@
 @using (Html.BeginForm("Sizing", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
 {
     <p>
-    <label for="fname">Columns:</label>
-    @Html.TextBoxFor(m => m.columns)
-    <label for="lname">Rows:</label>
-    @Html.TextBoxFor(m => m.rows)
+        <label for="fname">Columns:</label>
+        @Html.TextBoxFor(m => m.columns)
+        <label for="lname">Rows:</label>
+        @Html.TextBoxFor(m => m.rows)
     </p>
-        <div>
+    <div>
         <p><button type="submit">Clear and Resize table</button></p>
     </div>
 }
@@ -184,33 +184,51 @@
 
 
     <p>
-    <table id="mainTable">
-        
-        @for (var i = 0; i < Model.cells.Count(); i++)
-        {
-            <tr>
-                @for (var j = 0; j < Model.cells[i].Count(); j++)
-                {
-                    <td>
-                        @Html.TextBoxFor(m => m.cells[i][j])
-                    </td>
-                }
-            </tr>
-        }
-    </table>
+        <table id="mainTable">
+
+            @for (var i = 0; i < Model.cells.Count(); i++)
+            {
+                <tr>
+                    @for (var j = 0; j < Model.cells[i].Count(); j++)
+                    {
+                        <td>
+                            @Html.TextBoxFor(m => m.cells[i][j])
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
     </p>
 
+}
 
-    <label>Conditions:</label>
+@using (Html.BeginForm("ProvideInputConditions", "Home", FormMethod.Post))
+{
+    <div>
+        @*<p><button type="button" onclick="createExampleTable()">Example dataset</button></p>*@
+        <p><button type="submit">Provide Input Conditions</button></p>
+    </div>
+}
 
+<label>Conditions:</label>
+
+@if (Model.inputConditionsSelected)
+{
+    <div>@Model.cells[0].Count()</div>
     <p>
         <table id="mainTable">
             @*Headings*@
+
+
             <tr>
                 @for (var i = 0; i < Model.columns - 1; i++)
                 {
+                    if (Model.cells.Count == 0)
+                    {
+                        continue;
+                    }
                     <td>
-                        @Html.TextBoxFor(m => m.conditions[i])
+                        @Html.TextBoxFor(m => m.cells[0][i])
                     </td>
                 }
             </tr>
@@ -223,8 +241,10 @@
                     </td>
                 }
             </tr>
+
         </table>
     </p>
+}
 
     <div>
         <p>
@@ -237,6 +257,4 @@
     <div>
         <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
     </div>
-
-}
 
