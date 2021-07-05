@@ -155,11 +155,13 @@
 
 @using (Html.BeginForm("Sizing", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
 {
+    <p>
     <label for="fname">Columns:</label>
     @Html.TextBoxFor(m => m.columns)
     <label for="lname">Rows:</label>
     @Html.TextBoxFor(m => m.rows)
-    <div>
+    </p>
+        <div>
         <p><button type="submit">Clear and Resize table</button></p>
     </div>
 }
@@ -181,8 +183,9 @@
 {
 
 
-
+    <p>
     <table id="mainTable">
+        
         @for (var i = 0; i < Model.cells.Count(); i++)
         {
             <tr>
@@ -195,9 +198,35 @@
             </tr>
         }
     </table>
+    </p>
+
+
+    <label>Conditions:</label>
+
+    <p>
+    <table id="mainTable">
+        <tr>
+            @for (var i = 0; i < Model.columns - 1; i++)
+            {
+                <td>
+                    @Html.TextBoxFor(m => m.conditions[i])
+                </td>
+            }
+        </tr>
+    </table>
+    </p>
+
+    <div>
+        <p>
+            <label>Result:</label>
+            @Html.TextBoxFor(m => m.result, new { disabled = "disabled" })
+        </p>
+    </div>
+
 
     <div>
         <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
     </div>
 
 }
+

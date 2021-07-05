@@ -11,6 +11,9 @@ namespace MvcMovie.Models
         public int columns { get; set; }
         public List<List<String>> cells;
 
+        public List<String> conditions;
+        public String result;
+
         public ViewInput()
         {
             cells = new List<List<String>>();

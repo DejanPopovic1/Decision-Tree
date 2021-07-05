@@ -47,6 +47,7 @@ namespace MvcMovie.Controllers
             vi.cells.Add(l13);
             vi.cells.Add(l14);
             vi.cells.Add(l15);
+            vi.columns = 5;
             return View("~/Views/Home/DecisionTree.cshtml", vi);
         }
 
