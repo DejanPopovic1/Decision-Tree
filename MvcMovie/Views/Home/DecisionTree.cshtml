@@ -204,16 +204,26 @@
     <label>Conditions:</label>
 
     <p>
-    <table id="mainTable">
-        <tr>
-            @for (var i = 0; i < Model.columns - 1; i++)
-            {
-                <td>
-                    @Html.TextBoxFor(m => m.conditions[i])
-                </td>
-            }
-        </tr>
-    </table>
+        <table id="mainTable">
+            @*Headings*@
+            <tr>
+                @for (var i = 0; i < Model.columns - 1; i++)
+                {
+                    <td>
+                        @Html.TextBoxFor(m => m.conditions[i])
+                    </td>
+                }
+            </tr>
+            @*Conditions*@
+            <tr>
+                @for (var i = 0; i < Model.columns - 1; i++)
+                {
+                    <td>
+                        @Html.TextBoxFor(m => m.conditions[i])
+                    </td>
+                }
+            </tr>
+        </table>
     </p>
 
     <div>
