@@ -166,6 +166,22 @@
     </div>
 }
 
+@*Comment: Example using a controller that as the arguments: (ViewInput vi)
+    <form method="post" action="/Home/Sizing">
+        <input type="text" name="vi.columns" value="" />
+        <input type="text" name="vi.rows" value="" />
+        <input type="submit" />
+    </form>*@
+
+@*Comment: Example using a controller that as the arguments: (int columns, int rows))
+        <form method="post" action="/Home/Sizing">
+        <input type="text" name="columns" value="2" />
+        <input type="text" name="rows" value="2" />
+        <input type="submit" />
+    </form>*@
+
+@*For more complex types, see: http://haacked.com/archive/2008/10/23/model-binding-to-a-list.aspx/*@
+
 @using (Html.BeginForm("ExampleDataSet", "Home", FormMethod.Post))
 {
     <div>
@@ -183,22 +199,30 @@
 {
 
 
-    <p>
-        <table id="mainTable">
+    @*<p>
+            <table id="mainTable">
 
-            @for (var i = 0; i < Model.cells.Count(); i++)
-            {
-                <tr>
-                    @for (var j = 0; j < Model.cells[i].Count(); j++)
-                    {
-                        <td>
-                            @Html.TextBoxFor(m => m.cells[i][j])
-                        </td>
-                    }
-                </tr>
-            }
-        </table>
-    </p>
+                @for (var i = 0; i < Model.cells.Count(); i++)
+                {
+                    <tr>
+                        @for (var j = 0; j < Model.cells[i].Count(); j++)
+                        {
+                            <td>
+                                @Html.TextBoxFor(m => m.cells[i][j])
+                            </td>
+                        }
+                    </tr>
+                }
+            </table>
+        </p>*@
+
+    if (Model.cells.Count() > 0)
+    {
+        @Html.TextBoxFor(m => m.cells[0][0])
+    }
+    <div>
+        <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
+    </div>
 
 }
 
@@ -244,17 +268,18 @@
 
         </table>
     </p>
+
+
+
+
+
 }
 
-    <div>
-        <p>
-            <label>Result:</label>
-            @Html.TextBoxFor(m => m.result, new { disabled = "disabled" })
-        </p>
-    </div>
+<div>
+    <p>
+        <label>Result:</label>
+        @Html.TextBoxFor(m => m.result, new { disabled = "disabled" })
+    </p>
+</div>
 
-
-    <div>
-        <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
-    </div>
 

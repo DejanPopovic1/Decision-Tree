@@ -54,6 +54,7 @@ namespace MvcMovie.Controllers
         [HttpPost]
         public String GenerateDecisionTree(ViewInput vi)
         {
+            var test = vi.cells[0][0];//TEST LINE
             DataSet ds = new DataSet(vi.cells);
             DecisionTreeNode dtn = new DecisionTreeNode(ds);
             dtn.recursivelyConstructDecisionTreeLevels(dtn);
