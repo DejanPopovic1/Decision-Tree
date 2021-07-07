@@ -198,20 +198,21 @@
 @using (Html.BeginForm("GenerateDecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
 {
     <p>
-            <table id="mainTable">
+        <table id="mainTable">
 
-                @for (var i = 0; i < Model.cells.Count(); i++)
-                {
-                    <tr>
-                        @for (var j = 0; j < Model.cells[i].Count(); j++)
-                        {
-                            <td>
-                                @Html.TextBoxFor(m => m.cells[i][j])
-                            </td>
-                        }
-                    </tr>
-                }
-            </table>
+            @for (var i = 0; i < Model.cells.Count(); i++)
+            {
+                <tr>
+                    @for (var j = 0; j < Model.cells[i].Count(); j++)
+                    {
+                        <td>
+                            @Html.TextBoxFor(m => m.cells[i][j])
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+
         </p>
     <p><div>
         <br><button type="submit" name="command" value="submit1">Generate Decision Tree</button>
@@ -268,3 +269,9 @@
 </div>
 
 
+    <p>
+    <div>
+        @*<p><button type="button" onclick="createExampleTable()">Example dataset</button></p>*@
+        <p><button type="submit" name="command" value="submit3">Calculae Result</button></p>
+    </div>
+    </p>

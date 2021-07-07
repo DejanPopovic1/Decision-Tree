@@ -59,6 +59,11 @@ namespace MvcMovie.Controllers
             if (command == "submit2") {
                 vi.inputConditionsSelected = true;
             }
+            int i = vi.cells[0].Count();
+            while (i > 1) {
+                vi.conditions.Add("");
+                i--;
+            }
             DataSet ds = new DataSet(vi.cells);
             DecisionTreeNode dtn = new DecisionTreeNode(ds);
             dtn.recursivelyConstructDecisionTreeLevels(dtn);

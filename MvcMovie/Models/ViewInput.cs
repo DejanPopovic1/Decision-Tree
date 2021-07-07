@@ -19,7 +19,7 @@ namespace MvcMovie.Models
         public ViewInput()
         {
             cells = new List<List<String>>();
-            //conditions = new List<String>();
+            conditions = new List<String>();
             inputConditionsSelected = false;
             //ListExtras.Resize(cells, 10000, "");
         }
@@ -36,6 +36,9 @@ namespace MvcMovie.Models
                 cells.Add(lineCpy);
                 r--;
             }
+
+
+
         }
     }
 }
