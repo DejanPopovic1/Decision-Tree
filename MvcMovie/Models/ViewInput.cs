@@ -10,9 +10,8 @@ namespace MvcMovie.Models
         public int rows { get; set; }
         public int columns { get; set; }
         public List<List<String>> cells { get; set; }
-
         public List<String> conditions { get; set; }
-        public String result;
+        public String result { get; set; }
 
         public bool inputConditionsSelected;
 
