@@ -66,5 +66,22 @@ namespace MvcMovie.Models
             }
         }
 
+        //This function assumes that a tree is already built
+        public String determineResult(DecisionTreeNode dtn, Dictionary<String, String> conditions) {
+            if (decisionChildren.Count() == 0) {
+                return node;
+            }
+            //Find child index
+            String subRootNode = dtn.node;
+            String requiredBranchToTake = conditions[subRootNode];
+            int i = 0;
+            foreach (String branch in dtn.branches) {
+                if (branch == requiredBranchToTake){
+                    break;
+                }
+                i++;
+            }
+            return determineResult(dtn.decisionChildren[i], conditions);
+        }
     }
 }
