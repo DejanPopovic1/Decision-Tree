@@ -23,15 +23,16 @@ namespace MvcMovie.Models
 
         public DataSet(List<List<String>> l)
         {
+            List<List<String>> lCpy = new List<List<String>>(l);
             dt = new DataTable();
-            List<String> headingLine = l[0];
+            List<String> headingLine = lCpy[0];
             dt = new DataTable();
             foreach (String item in headingLine)
             {
                 dt.Columns.Add(new DataColumn(item, typeof(String)));
             }
-            l.RemoveAt(0);
-            foreach (List<String> line in l)
+            lCpy.RemoveAt(0);
+            foreach (List<String> line in lCpy)
             {
                 DataRow dr = dt.NewRow();
                 int j = 0;

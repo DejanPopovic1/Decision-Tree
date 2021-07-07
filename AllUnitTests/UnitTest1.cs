@@ -239,10 +239,10 @@ namespace AllUnitTests
             //Then
             Assert.AreEqual(l1[0], testDS.dt.Columns[0].ColumnName);
             Assert.AreEqual(l1[4], testDS.dt.Columns[4].ColumnName);
-            Assert.AreEqual(listOfLists[0][0], testDS.dt.Rows[0][0]);
-            Assert.AreEqual(listOfLists[0][3], testDS.dt.Rows[0][3]);
-            Assert.AreEqual(listOfLists[2][0], testDS.dt.Rows[2][0]);
-            Assert.AreEqual(listOfLists[4][1], testDS.dt.Rows[4][1]);
+            Assert.AreEqual(listOfLists[1][0], testDS.dt.Rows[0][0]);
+            Assert.AreEqual(listOfLists[1][3], testDS.dt.Rows[0][3]);
+            Assert.AreEqual(listOfLists[3][0], testDS.dt.Rows[2][0]);
+            Assert.AreEqual(listOfLists[5][1], testDS.dt.Rows[4][1]);
         }
     }
 }
