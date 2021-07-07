@@ -214,15 +214,13 @@
             </table>
         </p>
     <div>
-        <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
+        <br><button type="submit" name="command" value="submit1">Generate Decision Tree</button>
+        @*<br><input type="submit" name="submit1" class="btn btn-danger" value="Generate Decision Tree" />*@
     </div>
-}
 
-@using (Html.BeginForm("ProvideInputConditions", "Home", FormMethod.Post))
-{
     <div>
         @*<p><button type="button" onclick="createExampleTable()">Example dataset</button></p>*@
-        <p><button type="submit">Provide Input Conditions</button></p>
+        <p><button type="submit" name="command" value="submit2">Provide Input Conditions</button></p>
     </div>
 }
 
@@ -232,12 +230,12 @@
 {
     <div>@Model.cells[0].Count()</div>
     <p>
-        <table id="mainTable">
+        <table id="conditionTable">
             @*Headings*@
 
 
             <tr>
-                @for (var i = 0; i < Model.columns - 1; i++)
+                @for (var i = 0; i < Model.cells[0].Count() - 1; i++)
                 {
                     if (Model.cells.Count == 0)
                     {
@@ -250,7 +248,7 @@
             </tr>
             @*Conditions*@
             <tr>
-                @for (var i = 0; i < Model.columns - 1; i++)
+                @for (var i = 0; i < Model.cells[0].Count() - 1; i++)
                 {
                     <td>
                         @Html.TextBoxFor(m => m.conditions[i])

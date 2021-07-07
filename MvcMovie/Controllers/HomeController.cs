@@ -52,12 +52,15 @@ namespace MvcMovie.Controllers
         }
 
         [HttpPost]
-        public ActionResult GenerateDecisionTree(ViewInput vi)
+        public ActionResult GenerateDecisionTree(ViewInput vi, String command)
         {
-           // var test = vi.cells[0][0];//TEST LINE
+            // var test = vi.cells[0][0];//TEST LINE
+            if (command == "submit2") {
+                vi.inputConditionsSelected = true;
+            }
             DataSet ds = new DataSet(vi.cells);
-            //DecisionTreeNode dtn = new DecisionTreeNode(ds);
-            //dtn.recursivelyConstructDecisionTreeLevels(dtn);
+            DecisionTreeNode dtn = new DecisionTreeNode(ds);
+            dtn.recursivelyConstructDecisionTreeLevels(dtn);
             //1: Add to data set a constructor that takes a list of lists and test this - DONE
             //2: Construct a decisiontreenode off the above - DONE see first and second line in this function
             //3: Call recursivelyConstructDecisionTreeLevels - DONE see third line in this function
