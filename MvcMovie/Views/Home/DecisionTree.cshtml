@@ -228,12 +228,9 @@
 
 @if (Model.inputConditionsSelected)
 {
-    <div>@Model.cells[0].Count()</div>
     <p>
         <table id="conditionTable">
             @*Headings*@
-
-
             <tr>
                 @for (var i = 0; i < Model.cells[0].Count() - 1; i++)
                 {
@@ -242,7 +239,7 @@
                         continue;
                     }
                     <td>
-                        @Html.TextBoxFor(m => m.cells[0][i])
+                        @Html.TextBoxFor(m => m.cells[0][i], new {@readonly = "readonly" })
                     </td>
                 }
             </tr>
@@ -258,11 +255,6 @@
 
         </table>
     </p>
-
-
-
-
-
 }
 
 <div>
