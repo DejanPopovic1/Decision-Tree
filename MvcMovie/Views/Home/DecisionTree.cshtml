@@ -213,15 +213,18 @@
                 }
             </table>
         </p>
-    <div>
+    <p><div>
         <br><button type="submit" name="command" value="submit1">Generate Decision Tree</button>
         @*<br><input type="submit" name="submit1" class="btn btn-danger" value="Generate Decision Tree" />*@
     </div>
+    </p>
 
+    <p>
     <div>
         @*<p><button type="button" onclick="createExampleTable()">Example dataset</button></p>*@
         <p><button type="submit" name="command" value="submit2">Provide Input Conditions</button></p>
     </div>
+    </p>
 }
 
 <label>Conditions:</label>
@@ -239,7 +242,7 @@
                         continue;
                     }
                     <td>
-                        @Html.TextBoxFor(m => m.cells[0][i], new {@readonly = "readonly" })
+                        @Html.TextBoxFor(m => m.cells[0][i], new { disabled = "disabled", @readonly = "readonly" })
                     </td>
                 }
             </tr>

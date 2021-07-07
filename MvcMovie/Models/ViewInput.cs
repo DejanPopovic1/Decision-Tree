@@ -11,7 +11,7 @@ namespace MvcMovie.Models
         public int columns { get; set; }
         public List<List<String>> cells { get; set; }
 
-        public List<String> conditions;
+        public List<String> conditions { get; set; }
         public String result;
 
         public bool inputConditionsSelected;
@@ -19,6 +19,7 @@ namespace MvcMovie.Models
         public ViewInput()
         {
             cells = new List<List<String>>();
+            //conditions = new List<String>();
             inputConditionsSelected = false;
             //ListExtras.Resize(cells, 10000, "");
         }
