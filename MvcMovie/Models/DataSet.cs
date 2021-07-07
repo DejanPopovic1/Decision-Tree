@@ -250,8 +250,7 @@ namespace MvcMovie.Models
 
         public String firstRowLastColumn()
         {
-            var x = dt.Rows[0].ItemArray[dt.Columns.Count - 1];
-            return "test";
+            return dt.Rows[0].ItemArray[dt.Columns.Count - 1].ToString();
         }
 
 

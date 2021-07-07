@@ -262,7 +262,51 @@ namespace AllUnitTests
             String result = a.determineResult(a, conditions);
             //Then
             Assert.AreEqual(result, "HIGH");
-            //ADD ANOTHER CASE WHERE COLLATOERAL IS YES AND ANOTHER 2 CASES
+            //=========================================================================
+            //Given
+            DecisionTreeNode a1 = new DecisionTreeNode(ds);
+            a1.recursivelyConstructDecisionTreeLevels(a1);
+            Dictionary<String, String> conditions1 = new Dictionary<String, String>
+            {
+                {"CreditHistory", "UNKNOWN"},
+                {"Debt", "HIGH"},
+                {"Collateral", "YES"},
+                {"Income", "R15k - R35k"}
+            };
+            //When
+            String result1 = a1.determineResult(a1, conditions1);
+            //Then
+            Assert.AreEqual(result1, "HIGH");
+            //=========================================================================
+            //Given
+            DecisionTreeNode a2 = new DecisionTreeNode(ds);
+            a2.recursivelyConstructDecisionTreeLevels(a2);
+            Dictionary<String, String> conditions2 = new Dictionary<String, String>
+            {
+                {"CreditHistory", "UNKNOWN"},
+                {"Debt", "HIGH"},
+                {"Collateral", "YES"},
+                {"Income", "< R15k"}
+            };
+            //When
+            String result2 = a2.determineResult(a2, conditions2);
+            //Then
+            Assert.AreEqual(result2, "HIGH");
+            //=========================================================================
+            //Given
+            DecisionTreeNode a3 = new DecisionTreeNode(ds);
+            a3.recursivelyConstructDecisionTreeLevels(a3);
+            Dictionary<String, String> conditions3 = new Dictionary<String, String>
+            {
+                {"CreditHistory", "GOOD"},
+                {"Debt", "HIGH"},
+                {"Collateral", "YES"},
+                {"Income", "> R35k"}
+            };
+            //When
+            String result3 = a3.determineResult(a3, conditions3);
+            //Then
+            Assert.AreEqual(result3, "LOW");
         }
     }
 }

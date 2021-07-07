@@ -72,7 +72,7 @@ namespace MvcMovie.Models
             if (dtn.decisionChildren.Count() == 0)
             {
                 //return dtn.node;
-                return dtn.ds.dt
+                return dtn.ds.firstRowLastColumn();
             }
 
             //Find child index
