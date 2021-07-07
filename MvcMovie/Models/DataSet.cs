@@ -78,7 +78,7 @@ namespace MvcMovie.Models
             DataView dv = new DataView(dtCpy);
             String var1 = attribute;
             String var2 = attributeValue;
-            String filterString = String.Format("'{0}' = '{1}'", var1, var2);
+            String filterString = String.Format("[{0}] = '{1}'", var1, var2);//Added square brackets around {0} to handle white space in headings
             dv.RowFilter = filterString;
             dtCpy = dv.ToTable();
             return dtCpy;//At this point, dt is a new instance and not the filtered version of this classed instance of dt
