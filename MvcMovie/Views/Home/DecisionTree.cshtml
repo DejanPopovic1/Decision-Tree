@@ -226,11 +226,11 @@
         <p><button type="submit" name="command" value="submit2">Provide Input Conditions</button></p>
     </div>
     </p>
-}
+
 
 <label>Conditions:</label>
 
-@if (Model.inputConditionsSelected)
+if (Model.inputConditionsSelected)
 {
     <p>
         <table id="conditionTable">
@@ -272,6 +272,7 @@
     <p>
     <div>
         @*<p><button type="button" onclick="createExampleTable()">Example dataset</button></p>*@
-        <p><button type="submit" name="command" value="submit3">Calculae Result</button></p>
+        <p><button type="submit" name="command" value="submit3">Calculate Result</button></p>
     </div>
     </p>
+}

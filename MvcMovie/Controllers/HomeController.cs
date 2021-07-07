@@ -54,6 +54,10 @@ namespace MvcMovie.Controllers
         [HttpPost]
         public ActionResult GenerateDecisionTree(ViewInput vi, String command)
         {
+            if (command == "submit3")
+            {
+                var x = vi.conditions[0];
+            }
             //var test1 = vi.cells[1][4];//TEST LINE
             //var test2 = vi.cells[1][4];//TEST LINE
             if (command == "submit2") {
