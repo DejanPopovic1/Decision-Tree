@@ -68,7 +68,7 @@ namespace MvcMovie.Controllers
             //6: Add a field in viewModel called String result
             //7: Add find result function in DecisionTreeNode
             //8: Return the above result to view of DecisionTree
-            return "Heya";
+            return test;
         }
 
         public ActionResult DecisionTree(String r, String c)

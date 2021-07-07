@@ -197,9 +197,7 @@
 
 @using (Html.BeginForm("GenerateDecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
 {
-
-
-    @*<p>
+    <p>
             <table id="mainTable">
 
                 @for (var i = 0; i < Model.cells.Count(); i++)
@@ -214,16 +212,10 @@
                     </tr>
                 }
             </table>
-        </p>*@
-
-    if (Model.cells.Count() > 0)
-    {
-        @Html.TextBoxFor(m => m.cells[0][0])
-    }
+        </p>
     <div>
         <br><input type="submit" name="submit" class="btn btn-danger" value="Generate Decision Tree" />
     </div>
-
 }
 
 @using (Html.BeginForm("ProvideInputConditions", "Home", FormMethod.Post))

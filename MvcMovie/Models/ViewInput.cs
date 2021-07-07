@@ -9,7 +9,7 @@ namespace MvcMovie.Models
     {
         public int rows { get; set; }
         public int columns { get; set; }
-        public List<List<String>> cells;
+        public List<List<String>> cells { get; set; }
 
         public List<String> conditions;
         public String result;
