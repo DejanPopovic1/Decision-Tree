@@ -247,5 +247,13 @@ namespace MvcMovie.Models
             }
             return true;
         }
+
+        public String firstRowLastColumn()
+        {
+            var x = dt.Rows[0].ItemArray[dt.Columns.Count - 1];
+            return "test";
+        }
+
+
     }
 }

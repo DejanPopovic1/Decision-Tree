@@ -245,26 +245,24 @@ namespace AllUnitTests
             Assert.AreEqual(listOfLists[5][1], testDS.dt.Rows[4][1]);
         }
 
-        //[Test]
-        //public void determineResult()
-        //{
-        //    //Given
-        //    DecisionTreeNode a = new DecisionTreeNode(ds);
-        //    a.recursivelyConstructDecisionTreeLevels(a);
-        //    Dictionary<String, String> conditions = new Dictionary<String, String>
-        //    {
-        //        {"Credit history", "UNKNOWN"},
-        //        {"Debt", "HIGH"},
-        //        {"Collateral", "NO"},
-        //        {"Income", "R15k - R35k"}
-        //    };
-        //    //When
-        //    String result = a.determineResult(a, conditions);
-        //    //Then
-        //    Assert.AreEqual(result, "HIGH");
-        //    //ADD ANOTHER CASE WHERE COLLATOERAL IS YES AND ANOTHER 2 CASES
-        //}
-
-
+        [Test]
+        public void determineResult()
+        {
+            //Given
+            DecisionTreeNode a = new DecisionTreeNode(ds);
+            a.recursivelyConstructDecisionTreeLevels(a);
+            Dictionary<String, String> conditions = new Dictionary<String, String>
+            {
+                {"CreditHistory", "UNKNOWN"},
+                {"Debt", "HIGH"},
+                {"Collateral", "NO"},
+                {"Income", "R15k - R35k"}
+            };
+            //When
+            String result = a.determineResult(a, conditions);
+            //Then
+            Assert.AreEqual(result, "HIGH");
+            //ADD ANOTHER CASE WHERE COLLATOERAL IS YES AND ANOTHER 2 CASES
+        }
     }
 }
