@@ -63,8 +63,7 @@ namespace MvcMovie.Controllers
                     DataSet ds = new DataSet(vi.cells);
                     DecisionTreeNode dtn = new DecisionTreeNode(ds);
                     dtn.recursivelyConstructDecisionTreeLevels(dtn);
-                    String result = dtn.determineResult(dtn, conditionsList);
-
+                    vi.result = dtn.determineResult(dtn, conditionsList);
                     goto case "submit1";
                 case "submit1":
                     vi.inputConditionsSelected = true;
@@ -98,7 +97,7 @@ namespace MvcMovie.Controllers
             //7: Add a field in viewModel called String result - DONE
             //8: Add find result function in DecisionTreeNode - DONE
 
-            //9: Return the above result to view of DecisionTree
+            //9: Return the above result to view of DecisionTree - DONE
             //10: Rename submit 1 and 2
             return View("~/Views/Home/DecisionTree.cshtml", vi);
         }
