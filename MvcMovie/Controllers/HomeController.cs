@@ -54,20 +54,32 @@ namespace MvcMovie.Controllers
         [HttpPost]
         public ActionResult GenerateDecisionTree(ViewInput vi, String command)
         {
-            if (command == "submit1") {
-                vi.inputConditionsSelected = true;
+            switch (command) {
+                case "submit2":
+                    
+                case "submit1":
+                    vi.inputConditionsSelected = true;
+                    int i = vi.cells[0].Count();
+                    while (i > 1)
+                    {
+                        vi.conditions.Add("");
+                        i--;
+                    }
+                    break;
             }
 
+            Dictionary<String, String> conditions = new Dictionary<string, string>() {
+                { },
+                { }
 
-            int i = vi.cells[0].Count();
-            while (i > 1) {
-                vi.conditions.Add("");
-                i--;
-            }
+            };
+
+
             DataSet ds = new DataSet(vi.cells);
             DecisionTreeNode dtn = new DecisionTreeNode(ds);
             dtn.recursivelyConstructDecisionTreeLevels(dtn);
-            var x = vi.conditions[0];
+            //dtn.determineResult(dtn),);
+
             //1: Add to data set a constructor that takes a list of lists and test this - DONE
             //2: Construct a decisiontreenode off the above - DONE see first and second line in this function
             //3: Call recursivelyConstructDecisionTreeLevels - DONE see third line in this function
@@ -78,6 +90,7 @@ namespace MvcMovie.Controllers
             //8: Add find result function in DecisionTreeNode - DONE
 
             //9: Return the above result to view of DecisionTree
+            //10: Rename submit 1 and 2
             return View("~/Views/Home/DecisionTree.cshtml", vi);
         }
 

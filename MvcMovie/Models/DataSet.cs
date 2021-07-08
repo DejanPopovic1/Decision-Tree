@@ -253,6 +253,15 @@ namespace MvcMovie.Models
             return dt.Rows[0].ItemArray[dt.Columns.Count - 1].ToString();
         }
 
+        public List<String> columnNames()
+        {
+            List<String> result = new List<String>();
+            foreach (DataColumn column in dt.Columns)
+            {
+                result.Add(column.ColumnName);
 
+            }
+            return result;
+        }
     }
 }
