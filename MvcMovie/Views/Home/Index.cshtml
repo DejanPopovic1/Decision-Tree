@@ -3,21 +3,46 @@
 }
 
 <div class="jumbotron">
-    <img src="~/HomeImage.PNG" alt="Italian Trulli" style="width: 100%">
-
-    <h1>Welcome to the decision tree learning application</h1>
-    <p class="lead">The decision tree learning application uses decision tree learning to create a model that predicts the value of a target variable based on several input variables </p>
-    <p><a href="https://en.wikipedia.org/wiki/Decision_tree_learning" class="btn btn-primary btn-lg" style="background-color: seagreen">Learn more about decision trees &raquo;</a></p>
+    <h2 style="text-align: center;">Decision Tree Generator</h2>
+    <p><img src="~/Images/HomeImage2.PNG" alt="Landing Page Image" style="display: block; margin-left: auto; margin-right: auto; width: 50%; "></p>
+    <h2 style="text-align: center;">About</h2>
+    <p class="lead">The decision tree generator application uses decision tree learning to create a model that predicts the value of a target variable based on several input conditions </p>
+    <div style="text-align: center;">    
+    <p><a href="https://en.wikipedia.org/wiki/Decision_tree_learning" class="btn btn-primary btn-lg" style="background-color: seagreen; border-color: seagreen;">Learn more about decision trees &raquo;</a></p>
+    </div>
 </div>
 
 <div class="jumbotron">
-    <h2>Create a dataset and predict target variables</h2>
-    <p>
-        <ul>
-            <li>Manually input a dataset</li>
-            <li>Provide input parameters</li>
-            <li>Output prediction for target variable</li>
-        </ul>
-    </p>
-    <p><input type="button" value="Get Started &raquo" onclick="location.href='@Url.Action("DecisionTree", "Home")'" class="btn btn-primary btn-lg" style="background-color: slategrey"/></p>
+    <h2 style="text-align: center;">Manage Decision Tree</h2>
+    <div style="text-align: center;">
+        <p>
+            <div style="margin: 10px; width:250px; height:250px; border:1px solid #000; background: rgb(169 196 72 / 0.65); display: inline-block">
+                <b>Input a Dataset</b>
+                <div class="vertical-align-content">
+                    <i class='fab fa-buromobelexperte' style="font-size:48px; color:darkslategrey; "></i>
+                </div>
+            </div>
+            <div style="margin: 10px; width:250px; height:250px; border:1px solid #000; background: rgb(169 196 72 / 0.65); display: inline-block">
+                <b>Provide Input Conditions</b>
+                <div class="vertical-align-content">
+                    <i class='fas fa-angle-double-right' style="font-size:48px; color:darkslategrey; "></i>
+                </div>
+            </div>
+            <div style="margin: 10px; width:250px; height:250px; border:1px solid #000; background: rgb(169 196 72 / 0.65); display: inline-block">
+                <b>Output Target Variable</b>
+                <div class="vertical-align-content">
+                    <i class='fas fa-key' style="font-size:48px; color:darkslategrey; "></i>
+                </div>
+            </div>
+
+            @*<ul>
+            <li><h4>Input a dataset</h4></li>
+            <li><h4>Provide input conditions</h4></li>
+            <li><h4>Output target variable</h4></li>
+        </ul>*@
+        </p>
+    </div>
+    <div style="text-align: center;">
+        <p><input type="button" value="Get Started &raquo" onclick="location.href='@Url.Action("DecisionTree", "Home")'" class="btn btn-primary btn-lg" style="background-color: slategrey; border-color: slategrey"/></p>
+    </div>
 </div>
