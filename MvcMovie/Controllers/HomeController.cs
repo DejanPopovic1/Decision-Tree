@@ -54,9 +54,11 @@ namespace MvcMovie.Controllers
         [HttpPost]
         public ActionResult GenerateDecisionTree(ViewInput vi, String command)
         {
-            if (command == "submit2") {
+            if (command == "submit1") {
                 vi.inputConditionsSelected = true;
             }
+
+
             int i = vi.cells[0].Count();
             while (i > 1) {
                 vi.conditions.Add("");
@@ -73,8 +75,8 @@ namespace MvcMovie.Controllers
             //5: Move generate decsion tree to below the additiona above and rename to gen dec tree and find result - SKIP
             //6: Add a simple output textbox below this button - DONE
             //7: Add a field in viewModel called String result - DONE
+            //8: Add find result function in DecisionTreeNode - DONE
 
-            //8: Add find result function in DecisionTreeNode
             //9: Return the above result to view of DecisionTree
             return View("~/Views/Home/DecisionTree.cshtml", vi);
         }
