@@ -67,12 +67,14 @@ namespace MvcMovie.Controllers
                     }
                     break;
             }
+            //
+            Dictionary<String, String> conditionsList = new Dictionary<String, String>();
+            int i = 0;
+            foreach (String columnName in vi.cells[0]) {
+                conditionsList.Add(columnName, vi.conditions[i]);
+                i++;
+            }
 
-            Dictionary<String, String> conditions = new Dictionary<string, string>() {
-                { },
-                { }
-
-            };
 
 
             DataSet ds = new DataSet(vi.cells);
