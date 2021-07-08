@@ -56,7 +56,16 @@ namespace MvcMovie.Controllers
         {
             switch (command) {
                 case "submit2":
-                    
+                    Dictionary<String, String> conditionsList = new Dictionary<String, String>();
+                    for (int j = 0; j < vi.cells[0].Count - 1; j++) {
+                        conditionsList.Add(vi.cells[0][j], vi.conditions[j]);
+                    }
+                    DataSet ds = new DataSet(vi.cells);
+                    DecisionTreeNode dtn = new DecisionTreeNode(ds);
+                    dtn.recursivelyConstructDecisionTreeLevels(dtn);
+                    String result = dtn.determineResult(dtn, conditionsList);
+
+                    goto case "submit1";
                 case "submit1":
                     vi.inputConditionsSelected = true;
                     int i = vi.cells[0].Count();
@@ -68,18 +77,16 @@ namespace MvcMovie.Controllers
                     break;
             }
             //
-            Dictionary<String, String> conditionsList = new Dictionary<String, String>();
-            int i = 0;
-            foreach (String columnName in vi.cells[0]) {
-                conditionsList.Add(columnName, vi.conditions[i]);
-                i++;
-            }
 
 
 
-            DataSet ds = new DataSet(vi.cells);
-            DecisionTreeNode dtn = new DecisionTreeNode(ds);
-            dtn.recursivelyConstructDecisionTreeLevels(dtn);
+
+            //DataSet ds = new DataSet(vi.cells);
+            //DecisionTreeNode dtn = new DecisionTreeNode(ds);
+            //dtn.recursivelyConstructDecisionTreeLevels(dtn);
+
+
+
             //dtn.determineResult(dtn),);
 
             //1: Add to data set a constructor that takes a list of lists and test this - DONE
