@@ -9,13 +9,11 @@
 <script>
     const { placeholder } = require("modernizr");
 
+    //These scripts arent run in the front end but I have left them in here for learning
     function createExampleTable() {
-        //alert(document.getElementById("mainTable").innerHTML);
         deleteTable();
         createTable(5, 15);
         var table = document.getElementById("mainTable");
-        //var a = '<input type="text" name="Fname">';
-        //table.rows[0].cells[0].innerHTML = "test";
         table.rows[0].cells[0].childNodes[0].value = "Credit History";
         table.rows[0].cells[1].childNodes[0].value = "Debt";
         table.rows[0].cells[2].childNodes[0].value = "Collateral";
@@ -134,11 +132,8 @@
             for (var j = 0; j < columns; j++) {
                 var td = tr.insertCell();
                 var input = document.createElement("input");
-                //var index = i * j;
-                //var input = document.createElement(    @*@Html.TextBoxFor(m => m.cells[0])*@    );
                 input.type = "text";
                 td.appendChild(input);
-                //td.style.border = '1px solid black';
             }
         }
         body.appendChild(tbl);
@@ -153,7 +148,7 @@
     <li>Create a new data entry and click calculate outcome</li>
 </ol>
 
-@using (Html.BeginForm("Sizing", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
+@using (Html.BeginForm("Sizing", "Home", FormMethod.Post))
 {
     <p>
         <label for="fname">Columns:</label>
@@ -185,7 +180,6 @@
 @using (Html.BeginForm("ExampleDataSet", "Home", FormMethod.Post))
 {
     <div>
-        @*<p><button type="button" onclick="createExampleTable()">Example dataset</button></p>*@
         <p><button type="submit">Example dataset</button></p>
     </div>
 }
@@ -195,7 +189,7 @@
 
 </div>
 
-@using (Html.BeginForm("GenerateDecisionTree", "Home", FormMethod.Post))//(Action Name, Controller Name, FormMethod) Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
+@using (Html.BeginForm("GenerateDecisionTree", "Home", FormMethod.Post))//Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
 {
     <p>
         <table id="mainTable">
@@ -214,16 +208,8 @@
         </table>
 
         </p>
-
-    <!--<p><div>
-        <br><button type="submit" name="command" value="submit1">Generate Decision Tree</button>-->
-        @*<br><input type="submit" name="submit1" class="btn btn-danger" value="Generate Decision Tree" />*@
-    <!--</div>
-    </p>-->
-
     <p>
     <div>
-        @*<p><button type="button" onclick="createExampleTable()">Example dataset</button></p>*@
         <p><button type="submit" name="command" value="submit1">Provide Input Conditions</button></p>
     </div>
     </p>
@@ -235,7 +221,6 @@ if (Model.inputConditionsSelected)
 {
     <p>
         <table id="conditionTable">
-            @*Headings*@
             <tr>
                 @for (var i = 0; i < Model.cells[0].Count() - 1; i++)
                 {
@@ -248,7 +233,6 @@ if (Model.inputConditionsSelected)
                     </td>
                 }
             </tr>
-            @*Conditions*@
             <tr>
                 @for (var i = 0; i < Model.cells[0].Count() - 1; i++)
                 {
@@ -271,7 +255,6 @@ if (Model.inputConditionsSelected)
 
     <p>
     <div>
-        @*<p><button type="button" onclick="createExampleTable()">Example dataset</button></p>*@
         <p><button type="submit" name="command" value="submit2">Calculate Result</button></p>
     </div>
     </p>
