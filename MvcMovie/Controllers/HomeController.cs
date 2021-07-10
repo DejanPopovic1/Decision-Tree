@@ -14,48 +14,25 @@ namespace MvcMovie.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult ExampleDataSet() {
-            ViewInput vi = new ViewInput();
-            List<String> l1 = new List<String> {"Credit history", "Debt", "Collateral", "Income", "Risk"};
-            List<String> l2 = new List<String> {"BAD", "HIGH", "NO", "< R15k", "HIGH"};
-            List<String> l3 = new List<String> {"UNKNOWN", "HIGH", "NO", "R15k - R35k", "HIGH"};
-            List<String> l4 = new List<String> {"UNKNOWN", "LOW", "NO", "R15k - R35k", "MEDIUM"};
-            List<String> l5 = new List<String> {"UNKNOWN", "LOW", "NO", "< R15k", "HIGH"};
-            List<String> l6 = new List<String> {"UNKNOWN", "LOW", "NO", "> R35k", "LOW"};
-            List<String> l7 = new List<String> {"UNKNOWN", "LOW", "YES", "> R35k", "LOW"};
-            List<String> l8 = new List<String> {"BAD", "LOW", "NO", "< R15k", "HIGH"};
-            List<String> l9 = new List<String> {"BAD", "LOW", "YES", "> R35k", "MEDIUM"};
-            List<String> l10 = new List<String> {"GOOD", "LOW", "NO", "> R35k", "LOW"};
-            List<String> l11 = new List<String> {"GOOD", "HIGH", "YES", "> R35k", "LOW"};
-            List<String> l12 = new List<String> {"GOOD", "HIGH", "NO", "< R15k", "HIGH"};
-            List<String> l13 = new List<String> {"GOOD", "HIGH", "NO", "R15k - R35k", "MEDIUM"};
-            List<String> l14 = new List<String> {"GOOD", "HIGH", "NO", "> R35k", "LOW"};
-            List<String> l15 = new List<String> { "BAD", "HIGH", "NO", "R15k - R35k", "HIGH"};
-            vi.cells.Add(l1);
-            vi.cells.Add(l2);
-            vi.cells.Add(l3);
-            vi.cells.Add(l4);
-            vi.cells.Add(l5);
-            vi.cells.Add(l6);
-            vi.cells.Add(l7);
-            vi.cells.Add(l8);
-            vi.cells.Add(l9);
-            vi.cells.Add(l10);
-            vi.cells.Add(l11);
-            vi.cells.Add(l12);
-            vi.cells.Add(l13);
-            vi.cells.Add(l14);
-            vi.cells.Add(l15);
-            vi.columns = 5;
-            return View("~/Views/Home/DecisionTree.cshtml", vi);
+        public ActionResult DecisionTreeEntry() {
+            return View("~/Views/Home/DecisionTree.cshtml", new ViewInput());
         }
-
+        //Important to note: Using Razor pages, submitting a form may change a model and you wont be able to see it in the controller
         [HttpPost]
         public ActionResult GenerateDecisionTree(ViewInput vi, String command)
         {
             switch (command) {
+                case "submit1":
+                    //vi.emptyCells();
+                    //ViewBag.Message = "How to manage a decision tree";
+                    //vi.createEmptyInput(vi.rows, vi.columns);
+                    return RedirectToAction("EmptyDataSet", new {r = vi.rows, c = vi.columns});
+                    break;
                 case "submit2":
+                    //vi.exampleDataSet();
+                    return RedirectToAction("ExampleDataSet");
+                    break;
+                case "submit4":
                     Dictionary<String, String> conditionsList = new Dictionary<String, String>();
                     for (int j = 0; j < vi.cells[0].Count - 1; j++) {
                         conditionsList.Add(vi.cells[0][j], vi.conditions[j]);
@@ -64,8 +41,8 @@ namespace MvcMovie.Controllers
                     DecisionTreeNode dtn = new DecisionTreeNode(ds);
                     dtn.recursivelyConstructDecisionTreeLevels(dtn);
                     vi.result = dtn.determineResult(dtn, conditionsList);
-                    goto case "submit1";
-                case "submit1":
+                    goto case "submit3";
+                case "submit3":
                     vi.inputConditionsSelected = true;
                     int i = vi.cells[0].Count();
                     while (i > 1)
@@ -74,33 +51,32 @@ namespace MvcMovie.Controllers
                         i--;
                     }
                     break;
+                default:
+                    break;
             }
-            //
-
-
-
-
-            //DataSet ds = new DataSet(vi.cells);
-            //DecisionTreeNode dtn = new DecisionTreeNode(ds);
-            //dtn.recursivelyConstructDecisionTreeLevels(dtn);
-
-
-
-            //dtn.determineResult(dtn),);
-
-            //1: Add to data set a constructor that takes a list of lists and test this - DONE
-            //2: Construct a decisiontreenode off the above - DONE see first and second line in this function
-            //3: Call recursivelyConstructDecisionTreeLevels - DONE see third line in this function
-            //4: Upon clicking either 2 gray buttons appropriately add in input line of same size in exactly the same way as the main table was created. DONE
-            //5: Move generate decsion tree to below the additiona above and rename to gen dec tree and find result - SKIP
-            //6: Add a simple output textbox below this button - DONE
-            //7: Add a field in viewModel called String result - DONE
-            //8: Add find result function in DecisionTreeNode - DONE
-
-            //9: Return the above result to view of DecisionTree - DONE
-            //10: Rename submit 1 and 2
             return View("~/Views/Home/DecisionTree.cshtml", vi);
+            //return View("~/Views/Home/DecisionTree.cshtml", vi);
         }
+
+        //It seems very controller has a binding that cannot be changed. So now we make a new binding. See case 2 in the primary controller
+        public ActionResult ExampleDataSet()
+        {
+            ViewInput newVI = new ViewInput();
+            newVI.exampleDataSet();
+            return View("~/Views/Home/DecisionTree.cshtml", newVI);
+        }
+
+        //It seems very controller has a binding that cannot be changed. So now we make a new binding. See case 2 in the primary controller
+        public ActionResult EmptyDataSet(int r, int c)
+        {
+            ViewInput newVI = new ViewInput();
+            newVI.createEmptyInput(r, c);
+            return View("~/Views/Home/DecisionTree.cshtml", newVI);
+        }
+
+        //======================================
+        //The following controllers are not used
+        //======================================
 
         public ActionResult DecisionTree(String r, String c)
         {
@@ -118,35 +94,12 @@ namespace MvcMovie.Controllers
         }
 
         [HttpPost]
-        public ActionResult Sizing(ViewInput vi)
-        {
-            //vi.createEmptyInput(vi.rows, vi.columns);
-            var rs = vi.rows.ToString();
-            var cs = vi.columns.ToString();
-            return RedirectToAction("DecisionTree", new { r = rs, c = cs});//These variable names must match the names of parameters in DecisionTree
-        }
-
-        [HttpPost]
         public ActionResult ProvideInputConditions(ViewInput vi)
         {
             vi.inputConditionsSelected = true;
             var rs = vi.rows.ToString();
             var cs = vi.columns.ToString();
             return RedirectToAction("DecisionTree", new { r = rs, c = cs });//These variable names must match the names of parameters in DecisionTree
-        }
-
-        [HttpPost]
-        public String DecisionTree(ViewInput vi)
-        {
-            //System.Environment.Exit(vi.cells.Count);
-
-            //if (vi.rows == 3)
-            //{
-            //   System.Environment.Exit(vi.rows);
-            //}
-            //ViewBag.Message = "How to manage a decision tree";
-
-            return "Hello there";
         }
 
         public ActionResult Contact()

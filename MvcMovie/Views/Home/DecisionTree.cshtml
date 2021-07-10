@@ -148,19 +148,6 @@
     <li>Create a new data entry and click calculate outcome</li>
 </ol>
 
-@using (Html.BeginForm("Sizing", "Home", FormMethod.Post))
-{
-    <p>
-        <label for="fname">Columns:</label>
-        @Html.TextBoxFor(m => m.columns)
-        <label for="lname">Rows:</label>
-        @Html.TextBoxFor(m => m.rows)
-    </p>
-    <div>
-        <p><button type="submit">Clear and Resize table</button></p>
-    </div>
-}
-
 @*Comment: Example using a controller that as the arguments: (ViewInput vi)
     <form method="post" action="/Home/Sizing">
         <input type="text" name="vi.columns" value="" />
@@ -177,20 +164,27 @@
 
 @*For more complex types, see: http://haacked.com/archive/2008/10/23/model-binding-to-a-list.aspx/*@
 
-@using (Html.BeginForm("ExampleDataSet", "Home", FormMethod.Post))
-{
-    <div>
-        <p><button type="submit">Example dataset</button></p>
-    </div>
-}
-
-
-<div id="placeholder">
-
-</div>
-
 @using (Html.BeginForm("GenerateDecisionTree", "Home", FormMethod.Post))//Another form of this without using Razor is: <form method="post" action="/Home/UpdateInts">
 {
+        <p>
+            <label for="fname">Columns:</label>
+            @Html.TextBoxFor(m => m.columns)
+            <label for="lname">Rows:</label>
+            @Html.TextBoxFor(m => m.rows)
+        </p>
+        <div>
+            <p><button type="submit" name="command" value="submit1">Clear and Resize table</button></p>
+        </div>
+    
+        <div>
+            <p><button type="submit" name="command" value="submit2">Example dataset</button></p>
+        </div>
+
+    <div id="placeholder">
+
+    </div>
+
+
     <p>
         <table id="mainTable">
 
@@ -207,55 +201,55 @@
             }
         </table>
 
-        </p>
+    </p>
     <p>
-    <div>
-        <p><button type="submit" name="command" value="submit1">Provide Input Conditions</button></p>
+        <div>
+    <p><button type="submit" name="command" value="submit3">Provide Input Conditions</button></p>
     </div>
     </p>
 
 
-<label>Conditions:</label>
+    <label>Conditions:</label>
 
-if (Model.inputConditionsSelected)
-{
-    <p>
-        <table id="conditionTable">
-            <tr>
-                @for (var i = 0; i < Model.cells[0].Count() - 1; i++)
-                {
-                    if (Model.cells.Count == 0)
+    if (Model.inputConditionsSelected)
+    {
+        <p>
+            <table id="conditionTable">
+                <tr>
+                    @for (var i = 0; i < Model.cells[0].Count() - 1; i++)
                     {
-                        continue;
+                        if (Model.cells.Count == 0)
+                        {
+                            continue;
+                        }
+                        <td>
+                            @Html.TextBoxFor(m => m.cells[0][i], new { disabled = "disabled", @readonly = "readonly" })
+                        </td>
                     }
-                    <td>
-                        @Html.TextBoxFor(m => m.cells[0][i], new { disabled = "disabled", @readonly = "readonly" })
-                    </td>
-                }
-            </tr>
-            <tr>
-                @for (var i = 0; i < Model.cells[0].Count() - 1; i++)
-                {
-                    <td>
-                        @Html.TextBoxFor(m => m.conditions[i])
-                    </td>
-                }
-            </tr>
+                </tr>
+                <tr>
+                    @for (var i = 0; i < Model.cells[0].Count() - 1; i++)
+                    {
+                        <td>
+                            @Html.TextBoxFor(m => m.conditions[i])
+                        </td>
+                    }
+                </tr>
 
-        </table>
-    </p>
-}
+            </table>
+        </p>
+    }
 
-<div>
-    <p>
-        <label>Result:</label>
-        @Html.TextBoxFor(m => m.result, new { disabled = "disabled" })
-    </p>
-</div>
-
-    <p>
     <div>
-        <p><button type="submit" name="command" value="submit2">Calculate Result</button></p>
+        <p>
+            <label>Result:</label>
+            @Html.TextBoxFor(m => m.result, new { disabled = "disabled" })
+        </p>
+    </div>
+
+    <p>
+        <div>
+    <p><button type="submit" name="command" value="submit4">Calculate Result</button></p>
     </div>
     </p>
 }
